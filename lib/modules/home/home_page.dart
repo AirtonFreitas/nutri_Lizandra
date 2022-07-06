@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:realiza_nutri/modules/home/components/body_home_widget.dart';
-
 import '../navigation/navigation_page_widget.dart';
 import 'components/app_bar.dart';
-import 'components/drawer_app.dart';
+import '../../src/utils/drawer_app.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -44,49 +44,56 @@ class DrawerApp extends StatelessWidget {
             title: const Text('Dicas Nutricionais', style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),),
             leading: Icon(Icons.light_mode_outlined),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, 'tips');
             },
           ),
           ListTile(
             title: const Text('Receitas Fit', style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),),
             leading: Icon(Icons.receipt_long_outlined),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, 'revenues');
             },
           ),
           ListTile(
             title: const Text('Hábitos saudáveis', style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),),
             leading: Icon(Icons.mood_outlined),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, 'healthy-habits');
             },
           ),
           ListTile(
             title: const Text('Principais erros', style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),),
             leading: Icon(Icons.mood_bad),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, 'main-errors');
             },
           ),
           ListTile(
             title: const Text('Antes e Depois', style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),),
             leading: Icon(Icons.camera_alt_rounded),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, 'before-and-after');
             },
           ),
           ListTile(
             title: const Text('Agende sua Consulta', style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),),
             leading: Icon(Icons.calendar_month_outlined),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, 'shedule-consultation');
             },
           ),
           ListTile(
             title: const Text('Chat com a Nutri', style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),),
             leading: Icon(Icons.chat),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, 'chat');
+            },
+          ),
+                    ListTile(
+            title: const Text('Conhecendo a Nutri', style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),),
+            leading: Icon(Icons.ad_units_outlined),
+            onTap: () {
+              Navigator.pushNamed(context, 'profile_nutri');
             },
           ),
         ],

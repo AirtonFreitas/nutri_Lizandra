@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import '../navigation/navigation_page_widget.dart';
 import 'components/app_bar.dart';
 import '../../src/utils/drawer_app.dart';
-import 'components/body_shedule_widget.dart';
+import 'components/body_revenue_widget.dart';
 
 
-class SheduleConsultationScreen extends StatefulWidget {
-  const SheduleConsultationScreen({Key? key}) : super(key: key);
+class RevenuesScreen extends StatefulWidget {
+  const RevenuesScreen({Key? key}) : super(key: key);
 
   @override
-  State<SheduleConsultationScreen> createState() => _SheduleConsultationScreenState();
+  State<RevenuesScreen> createState() => _RevenuesScreenState();
 }
 
-class _SheduleConsultationScreenState extends State<SheduleConsultationScreen> {
+class _RevenuesScreenState extends State<RevenuesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,11 +20,11 @@ class _SheduleConsultationScreenState extends State<SheduleConsultationScreen> {
         preferredSize: Size.fromHeight(65),
         child: AppBarHomeWidget(
           imageBar: 'pera',
-          title: 'Agende sua Consulta',
+          title: 'Receitas Fit',
         ),
       ),
       drawer: DrawerApp(),
-      body: BodySheduleWidget(),
+      body: BodyRevenueWidget(),
       bottomNavigationBar: NavigationPageWidget(),
     );
   }

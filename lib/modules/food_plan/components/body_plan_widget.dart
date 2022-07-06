@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BodyHomeWidget extends StatefulWidget {
-  const BodyHomeWidget({Key? key}) : super(key: key);
+class BodyPlanWidget extends StatefulWidget {
+  const BodyPlanWidget({Key? key}) : super(key: key);
 
   @override
-  State<BodyHomeWidget> createState() => _BodyHomeWidgetState();
+  State<BodyPlanWidget> createState() => _BodyPlanWidget();
 }
 
-class _BodyHomeWidgetState extends State<BodyHomeWidget> {
+class _BodyPlanWidget extends State<BodyPlanWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(padding: EdgeInsets.only(top: 12),
@@ -15,7 +15,7 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
         Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Seja bem vindo ao Realiza Nutri',
+              'Body Plan Widget',
               style: TextStyle(
                   fontSize: 22,
                   fontFamily: 'GeosansLight',

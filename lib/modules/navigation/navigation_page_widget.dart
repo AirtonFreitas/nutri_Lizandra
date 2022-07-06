@@ -11,35 +11,19 @@ class NavigationPageWidget extends StatefulWidget {
 
 class _NavigationPageWidgetState extends State<NavigationPageWidget> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-
-    ),
-    Text(
-      'Index 1: Business',
-
-    ),
-    Text(
-      'Index 2: School',
-
-    ),
-    Text(
-      'Index 3: Settings',
-
-    ),
-  ];
 
   void _onTap(int index) {
+    alteraTela(index);
     setState(() {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
+    return BottomNavigationBar(elevation: 3,
       backgroundColor: ColorsUtils.greenPrimary,
-      type: BottomNavigationBarType.fixed,
+      type: BottomNavigationBarType.shifting,
       items: [
         BottomNavigationItemWidget().item(title: 'Inicio', image: 'home'),
         BottomNavigationItemWidget().item(title: 'Perfil', image: 'person'),
@@ -47,15 +31,25 @@ class _NavigationPageWidgetState extends State<NavigationPageWidget> {
             .item(title: 'Plano Alimentar', image: 'plan'),
         BottomNavigationItemWidget().item(title: 'Chat Nutri', image: 'chat'),
       ],
+      currentIndex: _selectedIndex,
       selectedItemColor: ColorsUtils.greenTitle,
       onTap: _onTap,
 
-      // currentIndex: a,
-      // onTap: _onItemTapped,
     );
   }
 
-
-
-
+  alteraTela(index) {
+    switch(index){
+      case 0:
+        //return Navigator.pushNamed(context, 'home');
+      case 1:
+        //return Navigator.pushNamed(context, 'profile');
+      case 2:
+        //return Navigator.pushNamed(context, 'plan');
+      case 3:
+        //return Navigator.pushNamed(context, 'chat');
+      default:
+        print('');
+    }
+  }
 }
