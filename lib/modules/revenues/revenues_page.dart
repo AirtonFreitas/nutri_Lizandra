@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../navigation/navigation_bottom_widget.dart';
+import 'body_revenues_widget.dart';
 import 'components/app_bar.dart';
 import '../../src/utils/drawer_app.dart';
-import 'components/body_revenue_widget.dart';
+
 
 
 class RevenuesScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _RevenuesScreenState extends State<RevenuesScreen> {
         ),
       ),
       drawer: DrawerApp(),
-      body: BodyRevenueWidget(),
+      body: RevenuesProandFree(),
       bottomNavigationBar: NavigationPageWidget(),
     );
   }

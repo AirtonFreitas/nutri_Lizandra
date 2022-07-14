@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../src/utils/colors_utils.dart';
+import '../../../../src/utils/colors_utils.dart';
 
 class CardRevenues extends StatelessWidget {
   var imageCard;
@@ -42,12 +42,12 @@ class CardRevenues extends StatelessWidget {
                       left: 10,
                       child: Container(
                           width: 250,
-                          color: ColorsUtils.greenPrimaryT,
+                          color: ColorsUtils.darkPrimary,
                           child: ListTile(
-                            title: Text(titleRevenue,
+                            title: Text(titleRevenue, maxLines: 1, overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   color: ColorsUtils.white,
-                                  fontSize: 32,
+                                  fontSize: 28,
                                   fontFamily: 'GeosansLight'),
                             ),
                             subtitle: Text(subtitleRevenue,

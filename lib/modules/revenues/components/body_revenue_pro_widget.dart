@@ -1,37 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/modules/revenues/components/receitas_card_widget.dart';
-import 'package:realiza_nutri/src/utils/colors_utils.dart';
+import 'package:realiza_nutri/modules/revenues/components/cards/revenue_pro_card_widget.dart';
+import 'package:realiza_nutri/modules/revenues/components/cards/components/version_pro_card_widget.dart';
 
-class BodyRevenueWidget extends StatefulWidget {
-  const BodyRevenueWidget({Key? key}) : super(key: key);
+
+class BodyRevenueProWidget extends StatefulWidget {
+  const BodyRevenueProWidget({Key? key}) : super(key: key);
 
   @override
-  State<BodyRevenueWidget> createState() => _BodyRevenueWidgetState();
+  State<BodyRevenueProWidget> createState() => _BodyRevenueProWidgetState();
 }
 
-class _BodyRevenueWidgetState extends State<BodyRevenueWidget> {
+class _BodyRevenueProWidgetState extends State<BodyRevenueProWidget> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.only(top: 12),
-      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      child: Row(crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+        VersaoPro(),
         CardRevenues(
             titleCard: '14 opções de Doces saudáveis',
             imageCard: 'assets/revenues/danete_caseiro.jpg',
-            titleRevenue: 'DANETE FIT',
+            titleRevenue: 'Danete Fit',
             subtitleRevenue: 'saboroso e baixa caloria'),
         SizedBox(width: 8),
         CardRevenues(
             titleCard: '15 receitas para um almoço saudável',
             imageCard: 'assets/revenues/tomate_ricota.jpg',
-            titleRevenue: 'TOMATE COM RICOTA',
+            titleRevenue: 'Tomate com Ricota',
             subtitleRevenue: 'saboroso e baixa caloria'),
         SizedBox(width: 8),
         CardRevenues(
             titleCard: '17 lanches saudáveis',
             imageCard: 'assets/revenues/cookies_amendoim.jpg',
-            titleRevenue: 'COOKIES DE AMENDOIM',
+            titleRevenue: 'Cookies de Amendoim',
             subtitleRevenue: 'saboroso e baixa caloria'),
       ]),
     );
