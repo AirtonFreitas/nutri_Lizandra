@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:realiza_nutri/modules/revenues/components/receitas_card_widget.dart';
+import 'package:realiza_nutri/src/utils/colors_utils.dart';
 
 class BodyRevenueWidget extends StatefulWidget {
   const BodyRevenueWidget({Key? key}) : super(key: key);
@@ -10,22 +12,27 @@ class BodyRevenueWidget extends StatefulWidget {
 class _BodyRevenueWidgetState extends State<BodyRevenueWidget> {
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.only(top: 12),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Row(mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Body Revenue Widget',
-              style: TextStyle(
-                  fontSize: 22,
-                  fontFamily: 'GeosansLight',
-                  fontWeight: FontWeight.w700),
-            )
-          ],
-        ),
-        Row(children: [
-
-                  ]),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.only(top: 12),
+      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        CardRevenues(
+            titleCard: '14 opções de Doces saudáveis',
+            imageCard: 'assets/revenues/danete_caseiro.jpg',
+            titleRevenue: 'DANETE FIT',
+            subtitleRevenue: 'saboroso e baixa caloria'),
+        SizedBox(width: 8),
+        CardRevenues(
+            titleCard: '15 receitas para um almoço saudável',
+            imageCard: 'assets/revenues/tomate_ricota.jpg',
+            titleRevenue: 'TOMATE COM RICOTA',
+            subtitleRevenue: 'saboroso e baixa caloria'),
+        SizedBox(width: 8),
+        CardRevenues(
+            titleCard: '17 lanches saudáveis',
+            imageCard: 'assets/revenues/cookies_amendoim.jpg',
+            titleRevenue: 'COOKIES DE AMENDOIM',
+            subtitleRevenue: 'saboroso e baixa caloria'),
       ]),
     );
   }

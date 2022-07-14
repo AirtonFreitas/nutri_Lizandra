@@ -15,13 +15,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Realiza Nutri',
       theme: ThemeData(
+        fontFamily: 'GeosansLight',
         primaryColor: ColorsUtils.greenSecondary,
         accentColor: ColorsUtils.greenPrimary,
         primarySwatch: Colors.green,
         buttonTheme: ButtonThemeData(
           buttonColor: ColorsUtils.greenSecondary,textTheme: ButtonTextTheme.accent,
         ),
-        textTheme: ThemeData.light().textTheme.copyWith(headline6: TextStyle(fontFamily: 'GeosansLight'))
+       textTheme: ThemeData.light().textTheme.copyWith(headline6: TextStyle(fontFamily: 'GeosansLight'))
         ),
       initialRoute: 'home',
       onGenerateRoute: RouteGenerator.generateRoute,
