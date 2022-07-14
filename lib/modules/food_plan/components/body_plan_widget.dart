@@ -15,7 +15,7 @@ class _BodyPlanWidget extends State<BodyPlanWidget> {
         Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Body Plan Widget',
+              'Plano Alimentar abaixo',
               style: TextStyle(
                   fontSize: 22,
                   fontFamily: 'GeosansLight',

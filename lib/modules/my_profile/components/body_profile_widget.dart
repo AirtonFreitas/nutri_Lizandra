@@ -15,7 +15,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
         Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Body Profile Widget',
+              'Meu Perfil aqui embaixo:',
               style: TextStyle(
                   fontSize: 22,
                   fontFamily: 'GeosansLight',

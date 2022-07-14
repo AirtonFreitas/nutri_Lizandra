@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../src/utils/drawer_app.dart';
 import '../profile_nutri//components/app_bar.dart';
-import '../navigation/navigation_page_widget.dart';
+import '../navigation/navigation_bottom_widget.dart';
 import 'components/body_profile_nutri_widget.dart';
 
 

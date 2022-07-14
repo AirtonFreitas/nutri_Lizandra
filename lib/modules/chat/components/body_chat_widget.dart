@@ -15,7 +15,7 @@ class _BodyChatWidget extends State<BodyChatWidget> {
         Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Body Chat Widget',
+              'Chat com a Nutri aqui embaixo:',
               style: TextStyle(
                   fontSize: 22,
                   fontFamily: 'GeosansLight',

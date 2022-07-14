@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../navigation/navigation_page_widget.dart';
+import '../navigation/navigation_bottom_widget.dart';
 import 'components/app_bar.dart';
 import '../../src/utils/drawer_app.dart';
 import 'components/body_plan_widget.dart';
+
 
 class FoodPlanScreen extends StatefulWidget {
   const FoodPlanScreen({Key? key}) : super(key: key);

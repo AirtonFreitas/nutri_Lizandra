@@ -2,22 +2,11 @@ import 'package:flutter/material.dart';
 import '../../src/utils/colors_utils.dart';
 import 'bottom_navigation_item_widget.dart';
 
-class NavigationPageWidget extends StatefulWidget {
-  const NavigationPageWidget({Key? key}) : super(key: key);
+class NavigationPageWidget extends StatelessWidget{
+  final int index;
+  final Function(int value) changeIndex;
 
-  @override
-  State<NavigationPageWidget> createState() => _NavigationPageWidgetState();
-}
-
-class _NavigationPageWidgetState extends State<NavigationPageWidget> {
-  int _selectedIndex = 0;
-
-  void _onTap(int index) {
-    alteraTela(index);
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  const BottomNavigationItemWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +20,9 @@ class _NavigationPageWidgetState extends State<NavigationPageWidget> {
             .item(title: 'Plano Alimentar', image: 'plan'),
         BottomNavigationItemWidget().item(title: 'Chat Nutri', image: 'chat'),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: index,
       selectedItemColor: ColorsUtils.greenTitle,
-      onTap: _onTap,
+      onTap: changeIndex,
 
     );
   }
@@ -41,13 +30,13 @@ class _NavigationPageWidgetState extends State<NavigationPageWidget> {
   alteraTela(index) {
     switch(index){
       case 0:
-        //return Navigator.pushNamed(context, 'home');
+        return Navigator.pushNamed(context, 'home');
       case 1:
-        //return Navigator.pushNamed(context, 'profile');
+        return Navigator.pushNamed(context, 'profile');
       case 2:
-        //return Navigator.pushNamed(context, 'plan');
+        return Navigator.pushNamed(context, 'food-plan');
       case 3:
-        //return Navigator.pushNamed(context, 'chat');
+        return Navigator.pushNamed(context, 'chat');
       default:
         print('');
     }
