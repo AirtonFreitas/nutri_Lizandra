@@ -33,7 +33,7 @@ class CardFreeRevenues extends StatelessWidget {
                 ),
               ]),
               Container(
-                width: 300,
+                width: 250,
                 child: Stack(
                   children: [
                     Image.asset(imageCard),

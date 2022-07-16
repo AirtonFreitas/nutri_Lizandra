@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'cards/components/version_free_card_widget.dart';
 import 'cards/revenue_free_card_widget.dart';
 
 class BodyRevenueFreeWidget extends StatefulWidget {
@@ -16,7 +15,6 @@ class _BodyRevenueFreeWidgetState extends State<BodyRevenueFreeWidget> {
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.only(top: 12),
       child: Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
-        VersaoFree(),
         CardFreeRevenues(
             titleCard: 'Doces saudáveis',
             imageCard: 'assets/revenues/danete_caseiro.jpg',

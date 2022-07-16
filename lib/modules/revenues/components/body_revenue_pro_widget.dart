@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:realiza_nutri/modules/revenues/components/cards/revenue_pro_card_widget.dart';
-import 'package:realiza_nutri/modules/revenues/components/cards/components/version_pro_card_widget.dart';
 
 
 class BodyRevenueProWidget extends StatefulWidget {
@@ -18,7 +17,6 @@ class _BodyRevenueProWidgetState extends State<BodyRevenueProWidget> {
       padding: EdgeInsets.only(top: 12),
       child: Row(crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-        VersaoPro(),
         CardRevenues(
             titleCard: '14 opções de Doces saudáveis',
             imageCard: 'assets/revenues/danete_caseiro.jpg',
