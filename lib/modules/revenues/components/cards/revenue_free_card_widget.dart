@@ -20,12 +20,12 @@ class CardFreeRevenues extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           elevation: 5,
-          color: ColorsUtils.bluePrimary,
+          color: ColorsUtils.greenPrimary,
           child: Column(
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(6),
                   child: Text(
                     titleCard,
                     style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
@@ -60,8 +60,9 @@ class CardFreeRevenues extends StatelessWidget {
                   ],
                 ),
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                Text('Ver Mais'),
+              Row(mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                Text('Ver mais',style: TextStyle(fontFamily: 'GeosansLight', fontSize: 16)),
                 IconButton(
                     onPressed: () {},
                     icon: Icon(

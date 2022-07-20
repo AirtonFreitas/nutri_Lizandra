@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/modules/revenues/components/cards/items_package_completed_widget.dart';
+import 'package:realiza_nutri/modules/package_complete/items_package_completed_widget.dart';
+
+import '../../src/utils/drawer_app.dart';
+import '../home/components/app_bar.dart';
+import '../navigation/navigation_bottom_widget.dart';
 
 class PacoteCompleto extends StatelessWidget {
   const PacoteCompleto({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(appBar: PreferredSize(
+      preferredSize: Size.fromHeight(65),
+      child: AppBarHomeWidget(
+        imageBar: 'pera',
+        title: 'Receitas Fit',
+      ),
+    ),
+
+      body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Programa Completo com Acompanhamento',
+          'Programa completo com Acompanhamento',
           style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
         ),
         SizedBox(height: 8),
@@ -28,6 +40,11 @@ class PacoteCompleto extends StatelessWidget {
         ItemsPakageCompleted(check: true,nameItem: 'Dicas Nutricionais'),
         ItemsPakageCompleted(check: true,nameItem: 'Grupo de Desafios'),
       ],
+    ),
+      drawer: DrawerApp(),
+      bottomNavigationBar: NavigationPageWidget(),
+
     );
+
   }
 }

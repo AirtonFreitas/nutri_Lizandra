@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/modules/revenues/components/cards/revenue_pro_card_widget.dart';
+import 'package:realiza_nutri/modules/package_complete/card/components/revenue_pro_card_widget.dart';
 
 
 class BodyRevenueProWidget extends StatefulWidget {

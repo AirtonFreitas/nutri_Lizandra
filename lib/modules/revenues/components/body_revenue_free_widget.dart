@@ -19,19 +19,19 @@ class _BodyRevenueFreeWidgetState extends State<BodyRevenueFreeWidget> {
             titleCard: 'Doces saudáveis',
             imageCard: 'assets/revenues/danete_caseiro.jpg',
             titleRevenue: 'Danete Fit',
-            subtitleRevenue: 'saboroso e baixa caloria'),
+            subtitleRevenue: 'Saudável e saboroso'),
         SizedBox(width: 8),
         CardFreeRevenues(
-            titleCard: 'Receitas para um almoço saudável',
+            titleCard: 'Almoço saudável',
             imageCard: 'assets/revenues/tomate_ricota.jpg',
             titleRevenue: 'Tomate com Ricota',
-            subtitleRevenue: 'saboroso e baixa caloria'),
+            subtitleRevenue: 'Recheado simples'),
         SizedBox(width: 8),
         CardFreeRevenues(
-            titleCard: 'Lanches saudáveis',
+            titleCard: 'Lanche saudável',
             imageCard: 'assets/revenues/cookies_amendoim.jpg',
-            titleRevenue: 'Cookies de Amendoim',
-            subtitleRevenue: 'saboroso e baixa caloria'),
+            titleRevenue: 'Cookies Amendoim',
+            subtitleRevenue: 'Rápido e saboroso'),
       ]),
     );
   }

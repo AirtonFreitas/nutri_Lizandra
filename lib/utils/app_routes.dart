@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../modules/home/components/app_bar.dart';
-import '../modules/revenues/revenues_item_widget.dart';
+
+//import '../modules/revenues/revenues_item_widget.dart';
+import '../modules/package_complete/package_completed_page.dart';
 import '../src/utils/drawer_app.dart';
 import 'package:realiza_nutri/modules/before_and_after/before_and_after_page.dart';
 import 'package:realiza_nutri/modules/chat/chat_page.dart';
@@ -42,10 +44,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => TipsScreen());
       case 'profile_nutri':
         return MaterialPageRoute(builder: (_) => ProfileNutriScreen());
-        case 'revenues-item':
-        return MaterialPageRoute(builder: (_) => RevenuesItem());
-      default:
-        _erroRoute();
+      case 'premium-package':
+        return MaterialPageRoute(builder: (_) => PacoteCompleto());
+            // case 'revenues-item':
+            // return MaterialPageRoute(builder: (_) => RevenuesItem());
+            default:
+            _erroRoute();
     }
   }
 
