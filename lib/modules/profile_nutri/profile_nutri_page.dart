@@ -26,7 +26,6 @@ title: 'Conhecendo a Nutri',
 ),
 drawer: DrawerApp(),
 body: BodyProfileNutriWidget(),
-bottomNavigationBar: NavigationPageWidget(),
 );
 }
 }

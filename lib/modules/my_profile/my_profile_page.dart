@@ -15,17 +15,9 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(65),
-        child: AppBarHomeWidget(
-          imageBar: 'pera',
-          title: 'Meu Perfil',
-        ),
-      ),
-      drawer: DrawerApp(),
-      body: BodyProfileWidget(),
-      bottomNavigationBar: NavigationPageWidget(),
+    return Container(
+      child: BodyProfileWidget(),
+
     );
   }
 }

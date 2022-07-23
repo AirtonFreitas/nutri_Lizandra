@@ -2,7 +2,21 @@ import 'package:flutter/material.dart';
 import '../../src/utils/colors_utils.dart';
 import 'bottom_navigation_item_widget.dart';
 
-class NavigationPageWidget extends StatelessWidget {
+class NavigationPageWidget extends StatefulWidget {
+  const NavigationPageWidget({Key? key}) : super(key: key);
+
+  @override
+  State<NavigationPageWidget> createState() => _NavigationPageWidgetState();
+}
+
+class _NavigationPageWidgetState extends State<NavigationPageWidget> {
+  int _selectedIndex = 0;
+
+  void _onTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +31,10 @@ class NavigationPageWidget extends StatelessWidget {
         BottomNavigationItemWidget().item(title: 'Chat Nutri', image: 'chat'),
       ],
       selectedItemColor: ColorsUtils.greenTitle,
-      onTap: (_){},
+        currentIndex: _selectedIndex,
+        onTap: _onTap,
 
     );
   }
+
 }

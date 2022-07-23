@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/modules/home/components/body_home_widget.dart';
+import '../chat/chat_page.dart';
+import '../food_plan/food_plan_page.dart';
+import '../my_profile/my_profile_page.dart';
 import '../navigation/navigation_bottom_widget.dart';
 import 'components/app_bar.dart';
 import '../../src/utils/drawer_app.dart';
@@ -23,7 +25,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       drawer: DrawerApp(),
-      body: BodyHomeWidget(),
+      body: PageView(
+        children: [
+            //HomeScreen(),
+            ProfileScreen(),
+            FoodPlanScreen(),
+            ChatScreen()
+        ],
+      ),
       bottomNavigationBar: NavigationPageWidget(),
     );
   }

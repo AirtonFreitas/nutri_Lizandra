@@ -15,17 +15,8 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(65),
-        child: AppBarHomeWidget(
-          imageBar: 'pera',
-          title: 'Chat com a Nutri',
-        ),
-      ),
-      drawer: DrawerApp(),
-      body: BodyChatWidget(),
-      bottomNavigationBar: NavigationPageWidget(),
+    return Container(
+     child: BodyChatWidget(),
     );
   }
 }
