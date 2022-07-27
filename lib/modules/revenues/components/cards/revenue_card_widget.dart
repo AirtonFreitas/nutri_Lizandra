@@ -64,7 +64,9 @@ class CardFreeRevenues extends StatelessWidget {
                   children: [
                 Text('Ver mais',style: TextStyle(fontFamily: 'GeosansLight', fontSize: 16)),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                     Navigator.pushNamed(context, 'revenue-details');
+                    },
                     icon: Icon(
                       Icons.open_in_new_sharp,
                       color: ColorsUtils.greenSecondary,

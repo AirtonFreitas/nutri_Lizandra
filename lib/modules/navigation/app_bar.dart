@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:realiza_nutri/src/utils/colors_utils.dart';
 
-class AppBarRevenueWidget extends StatelessWidget {
+class AppBarNavigationWidget extends StatelessWidget {
   final String title;
   final String imageBar;
 
-  const AppBarRevenueWidget(
+  const AppBarNavigationWidget(
       {Key? key, required this.title, required this.imageBar})
       : super(key: key);
 

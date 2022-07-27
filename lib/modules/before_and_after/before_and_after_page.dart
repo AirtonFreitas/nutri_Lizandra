@@ -22,9 +22,7 @@ class _BeforeAndAfterScreenState extends State<BeforeAndAfterScreen> {
           title: 'Antes e Depois',
         ),
       ),
-      drawer: DrawerApp(),
       body: BodyBeforeAndAfterWidget(),
-      bottomNavigationBar: NavigationPageWidget(),
     );
   }
 }

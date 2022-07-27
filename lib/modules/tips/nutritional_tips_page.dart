@@ -4,7 +4,6 @@ import 'components/app_bar.dart';
 import '../../src/utils/drawer_app.dart';
 import 'components/body_tips_widget.dart';
 
-
 class TipsScreen extends StatefulWidget {
   const TipsScreen({Key? key}) : super(key: key);
 
@@ -23,9 +22,7 @@ class _TipsScreenState extends State<TipsScreen> {
           title: 'Dicas Nutricionais',
         ),
       ),
-      drawer: DrawerApp(),
       body: BodyTipsWidget(),
-      bottomNavigationBar: NavigationPageWidget(),
     );
   }
 }

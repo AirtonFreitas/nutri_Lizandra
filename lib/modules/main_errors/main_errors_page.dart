@@ -23,9 +23,7 @@ class _MainErrosScreenState extends State<MainErrosScreen> {
           title: 'Principais erros',
         ),
       ),
-      drawer: DrawerApp(),
       body: BodyErrosMainWidget(),
-      bottomNavigationBar: NavigationPageWidget(),
     );
   }
 }

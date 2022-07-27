@@ -23,9 +23,7 @@ class _HealthyScreenState extends State<HealthyScreen> {
           title: 'Hábitos Sudáveis',
         ),
       ),
-      drawer: DrawerApp(),
       body: BodyHealthyWidget(),
-      bottomNavigationBar: NavigationPageWidget(),
     );
   }
 }

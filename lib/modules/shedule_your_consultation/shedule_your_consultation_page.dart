@@ -4,12 +4,12 @@ import 'components/app_bar.dart';
 import '../../src/utils/drawer_app.dart';
 import 'components/body_shedule_widget.dart';
 
-
 class SheduleConsultationScreen extends StatefulWidget {
   const SheduleConsultationScreen({Key? key}) : super(key: key);
 
   @override
-  State<SheduleConsultationScreen> createState() => _SheduleConsultationScreenState();
+  State<SheduleConsultationScreen> createState() =>
+      _SheduleConsultationScreenState();
 }
 
 class _SheduleConsultationScreenState extends State<SheduleConsultationScreen> {
@@ -23,9 +23,7 @@ class _SheduleConsultationScreenState extends State<SheduleConsultationScreen> {
           title: 'Agende sua Consulta',
         ),
       ),
-      drawer: DrawerApp(),
       body: BodySheduleWidget(),
-      bottomNavigationBar: NavigationPageWidget(),
     );
   }
 }

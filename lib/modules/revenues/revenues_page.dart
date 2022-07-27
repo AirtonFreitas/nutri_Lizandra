@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import '../navigation/navigation_bottom_widget.dart';
 import 'body_revenues_widget.dart';
 import 'components/app_bar.dart';
-import '../../src/utils/drawer_app.dart';
-
-
 
 class RevenuesScreen extends StatefulWidget {
   const RevenuesScreen({Key? key}) : super(key: key);
@@ -19,14 +15,12 @@ class _RevenuesScreenState extends State<RevenuesScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
-        child: AppBarHomeWidget(
+        child: AppBarRevenueWidget(
           imageBar: 'pera',
           title: 'Receitas Fit',
         ),
       ),
-      drawer: DrawerApp(),
-      body: RevenuesProandFree(),
-      bottomNavigationBar: NavigationPageWidget(),
+      body: RevenuesPro(),
     );
   }
 }

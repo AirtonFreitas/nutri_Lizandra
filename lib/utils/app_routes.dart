@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import '../modules/home/components/app_bar.dart';
-
-//import '../modules/revenues/revenues_item_widget.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import '../modules/package_complete/package_completed_page.dart';
+import '../modules/revenues/components/cards/revenue_details.dart';
 import '../src/utils/drawer_app.dart';
 import 'package:realiza_nutri/modules/before_and_after/before_and_after_page.dart';
 import 'package:realiza_nutri/modules/chat/chat_page.dart';
 import 'package:realiza_nutri/modules/food_plan/food_plan_page.dart';
 import 'package:realiza_nutri/modules/healthy_habits/healthy_habits_page.dart';
-import 'package:realiza_nutri/modules/home/home_page.dart';
+import 'package:realiza_nutri/modules/navigation/navigation_page.dart';
 import 'package:realiza_nutri/modules/main_errors/main_errors_page.dart';
 import 'package:realiza_nutri/modules/my_profile/my_profile_page.dart';
 import 'package:realiza_nutri/modules/shedule_your_consultation/shedule_your_consultation_page.dart';
@@ -16,14 +15,13 @@ import 'package:realiza_nutri/modules/tips/nutritional_tips_page.dart';
 import 'package:realiza_nutri/modules/revenues/revenues_page.dart';
 import 'package:realiza_nutri/modules/profile_nutri/profile_nutri_page.dart';
 
-
 class RouteGenerator {
-  static Route<dynamic>? generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+  static var args;
 
+  static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case 'home':
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(builder: (_) => NavigationPage());
       case 'before-and-after':
         return MaterialPageRoute(builder: (_) => BeforeAndAfterScreen());
       case 'chat':
@@ -46,10 +44,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ProfileNutriScreen());
       case 'premium-package':
         return MaterialPageRoute(builder: (_) => PacoteCompleto());
-            // case 'revenues-item':
-            // return MaterialPageRoute(builder: (_) => RevenuesItem());
-            default:
-            _erroRoute();
+      case 'revenue-details':
+        return MaterialPageRoute(builder: (_) => RevenueDetails());
+      default:
+        _erroRoute();
     }
   }
 
@@ -58,10 +56,7 @@ class RouteGenerator {
       return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(65),
-          child: AppBarHomeWidget(
-            imageBar: 'erro',
-            title: 'Erro',
-          ),
+          child: Text('ERROR'),
         ),
         drawer: DrawerApp(),
         body: Text('Página não encontrada'),

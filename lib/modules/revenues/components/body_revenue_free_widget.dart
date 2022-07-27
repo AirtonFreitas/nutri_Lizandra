@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'cards/revenue_free_card_widget.dart';
+import 'cards/revenue_card_widget.dart';
 
 class BodyRevenueFreeWidget extends StatefulWidget {
   const BodyRevenueFreeWidget({Key? key}) : super(key: key);
