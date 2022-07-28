@@ -15,8 +15,14 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-     child: BodyChatWidget(),
+    return Container(decoration: const BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.vertical(
+        top: Radius.circular(22),
+      ),
+    ),
+      child: BodyChatWidget(),
+
     );
   }
 }

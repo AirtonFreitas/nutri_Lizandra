@@ -17,28 +17,46 @@ class NavigationPage extends StatefulWidget {
 
 class _NavigationPage extends State<NavigationPage> {
   int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(65),
-        child: AppBarNavigationWidget(
-          imageBar: 'pera',
-          title: 'Realiza Nutri',
+      backgroundColor: ColorsUtils.greenPrimary,
+      appBar: AppBar(toolbarHeight: 65,
+        backgroundColor: ColorsUtils.greenPrimary,
+        elevation: 0.1,
+        title: AppBarNavigationWidget(
+            imageBar: 'pera',
+            title: 'Realiza Nutri',
+          ),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.menu_rounded, size: 40),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                ),
+                //AppBarNavigationWidget(title: 'pera', imageBar: 'Realiza Nutri'),
+              ],
+            );
+          },
         ),
       ),
       drawer: DrawerApp(),
-      body:
-      Center(
+      body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationItemWidget().item(title: 'Inicio', image: 'home'),
           BottomNavigationItemWidget().item(title: 'Perfil', image: 'person'),
-          BottomNavigationItemWidget().item(title: 'Plano Alimentar', image: 'plan'),
+          BottomNavigationItemWidget()
+              .item(title: 'Plano Alimentar', image: 'plan'),
           BottomNavigationItemWidget().item(title: 'Chat Nutri', image: 'chat'),
-
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: ColorsUtils.greenTitle,
@@ -48,10 +66,10 @@ class _NavigationPage extends State<NavigationPage> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-          HomeScreen(),
-          ProfileScreen(),
-          FoodPlanScreen(),
-          ChatScreen(),
+    HomeScreen(),
+    ProfileScreen(),
+    FoodPlanScreen(),
+    ChatScreen(),
   ];
 
   void _onItemTapped(int index) {

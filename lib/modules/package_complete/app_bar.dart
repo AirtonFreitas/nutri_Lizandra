@@ -12,7 +12,7 @@ class AppBarPackageCompleteWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        elevation: 3,
+        elevation: 0.1,
         backgroundColor: ColorsUtils.greenPrimary,
         centerTitle: true,
         title: Padding(

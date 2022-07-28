@@ -14,8 +14,14 @@ class FoodPlanScreen extends StatefulWidget {
 class _FoodPlanScreenState extends State<FoodPlanScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Container(decoration: const BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.vertical(
+        top: Radius.circular(22),
+      ),
+    ),
       child: BodyPlanWidget(),
+
     );
   }
 }

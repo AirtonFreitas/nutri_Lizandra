@@ -10,9 +10,8 @@ class RevenueTitleBody extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'COMER BEM, QUE MAL TEM?',
+            'Receitas e Cardápios',
             style: TextStyle(
-              fontFamily: 'GeosansLightItalic',
               fontSize: 20,
             ),
           ),

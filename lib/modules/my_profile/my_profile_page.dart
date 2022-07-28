@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:realiza_nutri/src/utils/colors_utils.dart';
 import '../navigation/navigation_bottom_widget.dart';
 import 'components/app_bar.dart';
 import '../../src/utils/drawer_app.dart';
@@ -16,8 +17,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(22),
+        ),
+      ),
       child: BodyProfileWidget(),
-
     );
   }
 }
