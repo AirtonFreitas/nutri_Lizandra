@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import '../modules/package_complete/package_completed_page.dart';
-import '../modules/revenues/components/cards/revenue_details.dart';
+import '../modules/revenues/revenue_page_widget.dart';
 import '../src/utils/drawer_app.dart';
 import 'package:realiza_nutri/modules/before_and_after/before_and_after_page.dart';
 import 'package:realiza_nutri/modules/chat/chat_page.dart';
@@ -12,7 +11,6 @@ import 'package:realiza_nutri/modules/main_errors/main_errors_page.dart';
 import 'package:realiza_nutri/modules/my_profile/my_profile_page.dart';
 import 'package:realiza_nutri/modules/shedule_your_consultation/shedule_your_consultation_page.dart';
 import 'package:realiza_nutri/modules/tips/nutritional_tips_page.dart';
-import 'package:realiza_nutri/modules/revenues/revenues_page.dart';
 import 'package:realiza_nutri/modules/profile_nutri/profile_nutri_page.dart';
 
 class RouteGenerator {
@@ -35,7 +33,7 @@ class RouteGenerator {
       case 'profile':
         return MaterialPageRoute(builder: (_) => ProfileScreen());
       case 'revenues':
-        return MaterialPageRoute(builder: (_) => RevenuesScreen());
+        return MaterialPageRoute(builder: (_) => RevenueDetails());
       case 'shedule-consultation':
         return MaterialPageRoute(builder: (_) => SheduleConsultationScreen());
       case 'tips':
@@ -44,8 +42,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ProfileNutriScreen());
       case 'premium-package':
         return MaterialPageRoute(builder: (_) => PacoteCompleto());
-      case 'revenue-details':
-        return MaterialPageRoute(builder: (_) => RevenueDetails());
       default:
         _erroRoute();
     }

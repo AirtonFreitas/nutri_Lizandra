@@ -24,9 +24,8 @@ class _NavigationPage extends State<NavigationPage> {
       backgroundColor: ColorsUtils.greenPrimary,
       appBar: AppBar(toolbarHeight: 65,
         backgroundColor: ColorsUtils.greenPrimary,
-        elevation: 0.1,
+        elevation: 0,
         title: AppBarNavigationWidget(
-            imageBar: 'pera',
             title: 'Realiza Nutri',
           ),
         leading: Builder(

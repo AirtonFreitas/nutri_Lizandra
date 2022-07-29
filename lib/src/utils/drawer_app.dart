@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:realiza_nutri/modules/revenues/revenues_page.dart';
 
 class DrawerApp extends StatelessWidget {
   const DrawerApp({Key? key}) : super(key: key);

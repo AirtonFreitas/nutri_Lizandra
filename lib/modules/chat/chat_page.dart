@@ -18,7 +18,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Container(decoration: const BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.vertical(
-        top: Radius.circular(22),
+        top: Radius.circular(40),
       ),
     ),
       child: BodyChatWidget(),

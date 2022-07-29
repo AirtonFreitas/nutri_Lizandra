@@ -12,7 +12,7 @@ class AppBarRevenueWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        elevation: 0.1,
+        elevation: 0,
         backgroundColor: ColorsUtils.greenPrimary,
         centerTitle: true,
         title: Padding(

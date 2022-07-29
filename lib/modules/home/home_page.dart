@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(decoration: const BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.vertical(
-        top: Radius.circular(22),
+        top: Radius.circular(40),
       ),
     ),
       child: BodyHomeWidget(),
