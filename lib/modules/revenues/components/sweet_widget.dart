@@ -113,6 +113,9 @@ class _RevenuesSweetState extends State<RevenuesSweet> {
         ),
         Container(
             child: _ingredientesActive ? _ingredientes() : _preparo()),
+        SizedBox(
+          height: 8,
+        ),
       ],
     );
   }

@@ -115,6 +115,9 @@ class _RevenuesLunchState extends State<RevenuesLunch> {
         ),
         Container(
             child: _ingredientesActive ? _ingredientes() : _preparo()),
+        SizedBox(
+          height: 8,
+        ),
       ],
     );
   }

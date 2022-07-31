@@ -13,6 +13,7 @@ class ItemsPakageCompleted extends StatelessWidget {
     //color: ColorsUtils.greenNav,
         child: Row(mainAxisAlignment: MainAxisAlignment.start,
       children: [
+        SizedBox(width: 8),
         Icon(
           check ? Icons.check_box : Icons.not_interested,
           color: check ? Colors.green : Colors.red,

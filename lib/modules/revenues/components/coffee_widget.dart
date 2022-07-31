@@ -114,6 +114,9 @@ class _RevenuesCoffeeState extends State<RevenuesCoffee> {
         ),
         Container(
             child: _ingredientesActive ? _ingredientes() : _preparo()),
+        SizedBox(
+          height: 8,
+        ),
       ],
     );
   }
