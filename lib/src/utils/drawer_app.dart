@@ -27,7 +27,7 @@ class DrawerApp extends StatelessWidget {
                       width: 20,
                     ),
                     Text(
-                      'Realiza Nutri',
+                      'Saúde nas mãos',
                       style: TextStyle(
                           fontFamily: 'GeosansLight',
                           fontSize: 22,
@@ -45,6 +45,7 @@ class DrawerApp extends StatelessWidget {
             ),
             leading: Icon(Icons.light_mode_outlined),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushNamed(context, 'tips');
             },
           ),
@@ -55,6 +56,7 @@ class DrawerApp extends StatelessWidget {
             ),
             leading: Icon(Icons.receipt_long_outlined),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushNamed(context, 'revenues');
             },
           ),
@@ -65,6 +67,7 @@ class DrawerApp extends StatelessWidget {
             ),
             leading: Icon(Icons.mood_outlined),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushNamed(context, 'healthy-habits');
             },
           ),
@@ -75,6 +78,7 @@ class DrawerApp extends StatelessWidget {
             ),
             leading: Icon(Icons.mood_bad),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushNamed(context, 'main-errors');
             },
           ),
@@ -85,6 +89,7 @@ class DrawerApp extends StatelessWidget {
             ),
             leading: Icon(Icons.camera_alt_rounded),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushNamed(context, 'before-and-after');
             },
           ),
@@ -95,6 +100,7 @@ class DrawerApp extends StatelessWidget {
             ),
             leading: Icon(Icons.calendar_month_outlined),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushNamed(context, 'shedule-consultation');
             },
           ),
@@ -105,6 +111,7 @@ class DrawerApp extends StatelessWidget {
             ),
             leading: Icon(Icons.ad_units_outlined),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushNamed(context, 'profile_nutri');
             },
           ),

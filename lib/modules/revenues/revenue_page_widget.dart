@@ -26,7 +26,6 @@ class _RevenueDetailsState extends State<RevenueDetails> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: AppBarRevenueWidget(
-          imageBar: 'pera',
           title: 'Receitas Fit',
         ),
       ),
