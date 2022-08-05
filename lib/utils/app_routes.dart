@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:realiza_nutri/modules/registration/whathsName.dart';
 import '../modules/package_complete/package_completed_page.dart';
 import '../modules/revenues/revenue_page_widget.dart';
 import '../src/utils/drawer_app.dart';
@@ -42,6 +43,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ProfileNutriScreen());
       case 'premium-package':
         return MaterialPageRoute(builder: (_) => PacoteCompleto());
+        case 'registration-name':
+        return MaterialPageRoute(builder: (_) => WhatsName());
       default:
         _erroRoute();
     }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/database/firebase_database.dart';
 
 class BodyHomeWidget extends StatefulWidget {
   const BodyHomeWidget({Key? key}) : super(key: key);
@@ -9,40 +8,32 @@ class BodyHomeWidget extends StatefulWidget {
 }
 
 class _BodyHomeWidgetState extends State<BodyHomeWidget> {
-  final nameController = TextEditingController();
+  bool isLoggin = false;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 12),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Seja bem vindo ao Realiza Nutri',
-              style: TextStyle(
-                  fontSize: 22,
-                  fontFamily: 'GeosansLight',
-                  fontWeight: FontWeight.w700),
-            ),
-          ],
-        ),
-        Row(children: [
-          TextButton(
-            onPressed: FirebaseData.saveData,
-            child: Text('enviar'),
-          ),
-          TextButton(
-            onPressed: FirebaseData.enviaMgs,
-            child: Text('enviar chat'),
-          ),
-          // TextField(
-          //   decoration: InputDecoration(hintText: 'nome'),
-          //   keyboardType: TextInputType.text,
-          // ),
-        ]),
-      ]),
-    );
+    return isLoggin
+        ? Container(
+            child: Text('Olá Airton'),
+          )
+        : _vamosFazerCadastro();
   }
+
+
+  _vamosFazerCadastro() {
+    return Padding(
+        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+        child: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
+      Text('Vamos fazer cadastro?', style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),),
+      SizedBox(height: 6,),
+      Text('Assim vamos ver as melhores opções para seu perfil', style: TextStyle(fontFamily: 'GeosansLight', fontSize: 16),),
+      TextButton(
+        onPressed: () {
+          Navigator.pushNamed(context, 'registration-name');
+        },
+        child: Text('avançar'),
+      )
+    ],)));
+        }
 }
