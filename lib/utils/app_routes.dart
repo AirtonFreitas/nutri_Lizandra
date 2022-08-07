@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/modules/registration/whathsName.dart';
+import 'package:realiza_nutri/modules/registration/whatName.dart';
 import '../modules/package_complete/package_completed_page.dart';
+import '../modules/registration/whatAge.dart';
 import '../modules/revenues/revenue_page_widget.dart';
 import '../src/utils/drawer_app.dart';
 import 'package:realiza_nutri/modules/before_and_after/before_and_after_page.dart';
@@ -43,8 +44,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ProfileNutriScreen());
       case 'premium-package':
         return MaterialPageRoute(builder: (_) => PacoteCompleto());
-        case 'registration-name':
+      case 'registration-name':
         return MaterialPageRoute(builder: (_) => WhatsName());
+      case 'registration-age':
+        return MaterialPageRoute(builder: (_) => WhatsAge(name: args));
       default:
         _erroRoute();
     }

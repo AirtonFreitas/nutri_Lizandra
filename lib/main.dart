@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Realiza Nutri',
+      title: 'Saúde nas mãos',
       theme: ThemeData(
         fontFamily: 'GeosansLight',
         primaryColor: ColorsUtils.greenSecondary,

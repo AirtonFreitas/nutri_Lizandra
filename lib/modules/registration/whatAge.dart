@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class WhatsName extends StatelessWidget {
-  const WhatsName({Key? key}) : super(key: key);
+class WhatsAge extends StatelessWidget {
+  const WhatsAge({Key? key, required this.name}) : super(key: key);
+
+  final String name;
 
   @override
   Widget build(BuildContext context) {
-    String? name;
+    int? age;
     return Scaffold(
         body: Padding(
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
@@ -15,16 +17,17 @@ class WhatsName extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Qual seu nome?',
+              'Qual é a sua idade?',
               style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
             ),
             SizedBox(
               height: 18,
             ),
             TextField(
-                onChanged: (text) {
-                  name = text;
+                onChanged: (textAge) {
+                  age = textAge as int?;
                 },
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(width: 0.2),
@@ -40,7 +43,12 @@ class WhatsName extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                name == null ? _toast('Favor preencher o nome') : _toast(name.toString());
+                age == null
+                    ? _toast('Favor preencher sua idade')
+                    :
+                    print('meu nome é $name e minha idade é $age');
+                // Navigator.pushNamed(context, 'registration-age',
+                //         arguments: {name, age});
               },
               child: Text('avançar'),
             )
@@ -56,8 +64,6 @@ class WhatsName extends StatelessWidget {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM_RIGHT,
         timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
         fontSize: 16.0);
   }
 }
