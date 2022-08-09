@@ -6,7 +6,7 @@ class WhatsName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? name;
+    String? namePerson;
     return Scaffold(
         body: Padding(
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
@@ -23,7 +23,7 @@ class WhatsName extends StatelessWidget {
             ),
             TextField(
                 onChanged: (text) {
-                  name = text;
+                  namePerson = text;
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -40,9 +40,9 @@ class WhatsName extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                name == null
+                namePerson == null
                     ? _toast('Favor preencher o nome')
-                    : Navigator.pushNamed(context, 'registration-age', arguments: {name});
+                    : Navigator.of(context).pushNamed('registration-ages',arguments: {'namePerson': namePerson});
               },
               child: Text('avançar'),
             )

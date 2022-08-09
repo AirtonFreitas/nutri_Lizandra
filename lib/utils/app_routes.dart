@@ -16,7 +16,6 @@ import 'package:realiza_nutri/modules/tips/nutritional_tips_page.dart';
 import 'package:realiza_nutri/modules/profile_nutri/profile_nutri_page.dart';
 
 class RouteGenerator {
-  static var args;
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -46,8 +45,21 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => PacoteCompleto());
       case 'registration-name':
         return MaterialPageRoute(builder: (_) => WhatsName());
-      case 'registration-age':
-        return MaterialPageRoute(builder: (_) => WhatsAge(name: args));
+      // case 'registration-age': (context){
+      //   {
+      //     final args = ModalRoute.of(context)?. settings.arguments as Map;
+      //     return WhatsAge(arguments: args['namePerson']);
+      //   }};
+      // break;
+
+      case 'registration-ages': (context){
+        {
+          final args = ModalRoute.of(context)?. settings.arguments as Map;
+          return MaterialPageRoute(builder: (_) => WhatsAge());
+        }};
+      break;
+
+
       default:
         _erroRoute();
     }

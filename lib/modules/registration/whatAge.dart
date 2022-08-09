@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class WhatsAge extends StatelessWidget {
-  const WhatsAge({Key? key, required this.name}) : super(key: key);
+  const WhatsAge({Key? key}) : super(key: key);
 
-  final String name;
+  //final String name;
 
   @override
   Widget build(BuildContext context) {
     int? age;
+    //print(args);
     return Scaffold(
         body: Padding(
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
@@ -46,7 +48,7 @@ class WhatsAge extends StatelessWidget {
                 age == null
                     ? _toast('Favor preencher sua idade')
                     :
-                    print('meu nome é $name e minha idade é $age');
+                    print('meu nome é aaa e minha idade é $age');
                 // Navigator.pushNamed(context, 'registration-age',
                 //         arguments: {name, age});
               },
