@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/modules/registration/whatName.dart';
-import '../modules/package_complete/package_completed_page.dart';
-import '../modules/registration/whatAge.dart';
-import '../modules/revenues/revenue_page_widget.dart';
+import 'package:realiza_nutri/ui/registration/registration_profile_page.dart';
+import '../ui/before_and_after/before_and_after_page.dart';
+import '../ui/chat/chat_page.dart';
+import '../ui/food_plan/food_plan_page.dart';
+import '../ui/healthy_habits/healthy_habits_page.dart';
+import '../ui/main_errors/main_errors_page.dart';
+import '../ui/my_profile/my_profile_page.dart';
+import '../ui/navigation/navigation_page.dart';
+import '../ui/package_complete/package_completed_page.dart';
+import '../ui/profile_nutri/profile_nutri_page.dart';
+import '../ui/revenues/revenue_page_widget.dart';
 import '../src/utils/drawer_app.dart';
-import 'package:realiza_nutri/modules/before_and_after/before_and_after_page.dart';
-import 'package:realiza_nutri/modules/chat/chat_page.dart';
-import 'package:realiza_nutri/modules/food_plan/food_plan_page.dart';
-import 'package:realiza_nutri/modules/healthy_habits/healthy_habits_page.dart';
-import 'package:realiza_nutri/modules/navigation/navigation_page.dart';
-import 'package:realiza_nutri/modules/main_errors/main_errors_page.dart';
-import 'package:realiza_nutri/modules/my_profile/my_profile_page.dart';
-import 'package:realiza_nutri/modules/shedule_your_consultation/shedule_your_consultation_page.dart';
-import 'package:realiza_nutri/modules/tips/nutritional_tips_page.dart';
-import 'package:realiza_nutri/modules/profile_nutri/profile_nutri_page.dart';
+import '../ui/shedule_your_consultation/shedule_your_consultation_page.dart';
+import '../ui/tips/nutritional_tips_page.dart';
 
 class RouteGenerator {
 
@@ -44,22 +43,13 @@ class RouteGenerator {
       case 'premium-package':
         return MaterialPageRoute(builder: (_) => PacoteCompleto());
       case 'registration-name':
-        return MaterialPageRoute(builder: (_) => WhatsName());
+        return MaterialPageRoute(builder: (_) => RegistrationProfile());
       // case 'registration-age': (context){
       //   {
       //     final args = ModalRoute.of(context)?. settings.arguments as Map;
       //     return WhatsAge(arguments: args['namePerson']);
       //   }};
       // break;
-
-      case 'registration-ages': (context){
-        {
-          final args = ModalRoute.of(context)?. settings.arguments as Map;
-          return MaterialPageRoute(builder: (_) => WhatsAge());
-        }};
-      break;
-
-
       default:
         _erroRoute();
     }

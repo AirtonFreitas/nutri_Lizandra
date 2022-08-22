@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/modules/package_complete/items_package_completed_widget.dart';
-
-import '../../src/utils/drawer_app.dart';
-import '../navigation/navigation_bottom_widget.dart';
 import 'app_bar.dart';
+import 'items_package_completed_widget.dart';
 
 class PacoteCompleto extends StatelessWidget {
   const PacoteCompleto({Key? key}) : super(key: key);

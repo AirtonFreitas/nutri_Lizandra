@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/modules/revenues/components/sweet_widget.dart';
 import 'package:realiza_nutri/src/utils/colors_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../package_complete/items_package_completed_widget.dart';
 import 'components/app_bar.dart';
 import 'components/coffee_widget.dart';
 import 'components/food_widget.dart';
 import 'components/lunch_widget.dart';
+import 'components/sweet_widget.dart';
 
 class RevenueDetails extends StatefulWidget {
   const RevenueDetails({Key? key}) : super(key: key);
