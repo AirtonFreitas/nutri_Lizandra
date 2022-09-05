@@ -1,7 +1,11 @@
+import 'dart:ffi';
+
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:realiza_nutri/database/firebase_database.dart';
+import 'package:realiza_nutri/src/utils/colors_utils.dart';
 import 'registration_store.dart';
 
 final registrationStore = RegistrationStore();
@@ -18,7 +22,7 @@ class _RegistrationProfileState extends State<RegistrationProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +49,7 @@ class _RegistrationProfileState extends State<RegistrationProfile> {
   ];
 }
 
-_toast(String toast) {
+void _toast(String toast) {
   Fluttertoast.showToast(
       msg: toast,
       toastLength: Toast.LENGTH_SHORT,
@@ -57,28 +61,29 @@ _toast(String toast) {
 solicitaNome() {
   return Column(
     children: [
-      Text(
+      const Text(
         'Qual seu nome?',
         style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
       ),
-      SizedBox(
+      const SizedBox(
         height: 18,
       ),
       TextField(
           onChanged: (text) {
             registrationStore.setName(text);
           },
+          // ignore: prefer_const_constructors
           decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(width: 0.2),
-              borderRadius: BorderRadius.all(Radius.circular(14)),
+            enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(width: 0.2),
+              borderRadius: BorderRadius.all(const Radius.circular(14)),
             ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(width: 0.2),
+            focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(width: 0.2),
               borderRadius: BorderRadius.all(Radius.circular(14)),
             ),
           )),
-      SizedBox(
+      const SizedBox(
         height: 12,
       ),
       TextButton(
@@ -88,7 +93,7 @@ solicitaNome() {
               : registrationStore.nextPage();
           FocusManager.instance.primaryFocus?.unfocus();
         },
-        child: Text('avançar'),
+        child: const Text('avançar'),
       )
     ],
   );
@@ -97,11 +102,11 @@ solicitaNome() {
 solicitaIdade() {
   return Column(
     children: [
-      Text(
+      const Text(
         'Qual sua idade?',
-        style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+        style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
       ),
-      SizedBox(
+      const SizedBox(
         height: 18,
       ),
       TextField(
@@ -111,17 +116,17 @@ solicitaIdade() {
         controller: TextEditingController(),
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 0.2),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 0.2),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
         ),
       ),
-      SizedBox(
+      const SizedBox(
         height: 12,
       ),
       TextButton(
@@ -131,7 +136,7 @@ solicitaIdade() {
               : registrationStore.nextPage();
           FocusManager.instance.primaryFocus?.unfocus();
         },
-        child: Text('avançar'),
+        child: const Text('avançar'),
       )
     ],
   );
@@ -140,11 +145,11 @@ solicitaIdade() {
 solicitaPeso() {
   return Column(
     children: [
-      Text(
+      const Text(
         'Qual seu peso?',
         style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
       ),
-      SizedBox(
+      const SizedBox(
         height: 18,
       ),
       TextField(
@@ -153,18 +158,18 @@ solicitaPeso() {
         },
         controller: TextEditingController(),
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 0.2),
-            borderRadius: BorderRadius.all(Radius.circular(14)),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 0.2),
+            borderRadius: const BorderRadius.all(const Radius.circular(14)),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 0.2),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
         ),
         keyboardType: TextInputType.number,
       ),
-      SizedBox(
+      const SizedBox(
         height: 12,
       ),
       TextButton(
@@ -174,7 +179,7 @@ solicitaPeso() {
               : registrationStore.nextPage();
           FocusManager.instance.primaryFocus?.unfocus();
         },
-        child: Text('avançar'),
+        child: const Text('avançar'),
       )
     ],
   );
@@ -183,11 +188,11 @@ solicitaPeso() {
 solicitaAltura() {
   return Column(
     children: [
-      Text(
+      const Text(
         'Qual sua altura?',
         style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
       ),
-      SizedBox(
+      const SizedBox(
         height: 18,
       ),
       TextField(
@@ -196,18 +201,18 @@ solicitaAltura() {
         },
         controller: TextEditingController(),
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 0.2),
-            borderRadius: BorderRadius.all(Radius.circular(14)),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 0.2),
+            borderRadius: const BorderRadius.all(Radius.circular(14)),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 0.2),
-            borderRadius: BorderRadius.all(Radius.circular(14)),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 0.2),
+            borderRadius: const BorderRadius.all(const Radius.circular(14)),
           ),
         ),
         keyboardType: TextInputType.number,
       ),
-      SizedBox(
+      const SizedBox(
         height: 12,
       ),
       TextButton(
@@ -217,7 +222,7 @@ solicitaAltura() {
               : registrationStore.nextPage();
           FocusManager.instance.primaryFocus?.unfocus();
         },
-        child: Text('avançar'),
+        child: const Text('avançar'),
       )
     ],
   );
@@ -226,40 +231,60 @@ solicitaAltura() {
 solicitaGen() {
   return Column(
     children: [
-      Text(
-        'Qual seu genero?',
+      const Text(
+        'Sexo atribuído no seu nascimento?',
         style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
       ),
-      SizedBox(
+      const SizedBox(
         height: 18,
       ),
-      TextField(
-          onChanged: (text) {
-            registrationStore.setGenero(text);
-          },
-          controller: TextEditingController(),
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(width: 0.2),
-              borderRadius: BorderRadius.all(Radius.circular(14)),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(width: 0.2),
-              borderRadius: BorderRadius.all(Radius.circular(14)),
-            ),
-          )),
-      SizedBox(
-        height: 12,
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Column(
+            children: [
+              InkWell(
+                onTap: () {
+                  registrationStore.setGenero("FEM");
+                  registrationStore.nextPage();
+                },
+                child: Image.asset(
+                  'assets/fem.png',
+                  width: 150,
+                ),
+              ),
+              Text(
+                'Feminino',
+                style: TextStyle(
+                    fontSize: 22,
+                    color: ColorsUtils.pinkGPrimary,
+                    fontFamily: 'GeosansLight'),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              InkWell(
+                onTap: () {
+                  registrationStore.setGenero("MASC");
+                  registrationStore.nextPage();
+                },
+                child: Image.asset(
+                  'assets/masc.png',
+                  width: 150,
+                ),
+              ),
+              Text(
+                'Masculino',
+                style: TextStyle(
+                    fontSize: 22,
+                    color: ColorsUtils.purpleGPrimary,
+                    fontFamily: 'GeosansLight'),
+              ),
+            ],
+          ),
+        ],
       ),
-      TextButton(
-        onPressed: () {
-          registrationStore.genero == null
-              ? _toast('Favor preencher')
-              : registrationStore.nextPage();
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        child: Text('avançar'),
-      )
     ],
   );
 }
@@ -267,39 +292,80 @@ solicitaGen() {
 solicitaObjetivo() {
   return Column(
     children: [
-      Text(
-        'Qual seu objetivo?',
-        style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+      const Text(
+        'Qual seu objetivo nutricional?',
+        style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
       ),
-      SizedBox(
+      const SizedBox(
         height: 18,
       ),
-      TextField(
-          onChanged: (text) {
-            registrationStore.setObjetivo(text);
+      Padding(
+        padding: EdgeInsets.all(12),
+        child: TextButton(
+          onPressed: () {
+            registrationStore.setObjetivo('Ganhar peso');
           },
-          controller: TextEditingController(),
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(width: 0.2),
-              borderRadius: BorderRadius.all(Radius.circular(14)),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(width: 0.2),
-              borderRadius: BorderRadius.all(Radius.circular(14)),
-            ),
-          )),
-      SizedBox(
-        height: 12,
+          child: const Text(
+            'Ganhar peso',
+            style: TextStyle(
+                fontFamily: 'GeosansLight',
+                fontSize: 26,
+                color: Colors.green,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
-      TextButton(
-        onPressed: () {
-          registrationStore.objetivoNutricional == null
-              ? _toast('Favor preencher')
-              : registrationStore.nextPage();
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        child: Text('avançar'),
+      Padding(
+        padding: EdgeInsets.all(12),
+        child: TextButton(
+          onPressed: () {
+            registrationStore.setObjetivo('Manter meu peso');
+          },
+          child: const Text(
+            'Manter meu peso',
+            style: TextStyle(
+                fontFamily: 'GeosansLight',
+                fontSize: 26,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(12),
+        child: TextButton(
+          onPressed: () {
+            registrationStore.setObjetivo('Perder peso');
+          },
+          child: const Text(
+            'Perder peso',
+            style: TextStyle(
+                fontFamily: 'GeosansLight',
+                fontSize: 26,
+                color: Colors.red,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+      const SizedBox(
+        height: 28,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextButton(
+            onPressed: () => registrationStore.backPage(),
+            child: const Text('voltar'),
+          ),
+          TextButton(
+            onPressed: () {
+              registrationStore.objetivoNutricional == null
+                  ? _toast('Opss, escolha uma das opções acima')
+                  : registrationStore.nextPage();
+            },
+            child: const Text('avançar'),
+          ),
+        ],
       )
     ],
   );
@@ -308,30 +374,17 @@ solicitaObjetivo() {
 solicitaAtividade() {
   return Column(
     children: [
-      Text(
-        'Você pratica Atividades Físicas?',
-        style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+      const Text(
+        'Quanto você pratica de atividades físicas diariamente?',
+        style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
       ),
-      SizedBox(
+      Row(children: [
+        Image.asset('teste'),
+        Text('${registrationStore.sliderAtividade}'),
+        Image.asset('teste'),
+      ],),
+      const SizedBox(
         height: 18,
-      ),
-      TextField(
-          onChanged: (text) {
-            registrationStore.setAtividade(text);
-          },
-          controller: TextEditingController(),
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(width: 0.2),
-              borderRadius: BorderRadius.all(Radius.circular(14)),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(width: 0.2),
-              borderRadius: BorderRadius.all(Radius.circular(14)),
-            ),
-          )),
-      SizedBox(
-        height: 12,
       ),
       TextButton(
         onPressed: () {
@@ -348,7 +401,7 @@ solicitaAtividade() {
                 );
           FocusManager.instance.primaryFocus?.unfocus();
         },
-        child: Text('avançar'),
+        child: const Text('avançar'),
       )
     ],
   );

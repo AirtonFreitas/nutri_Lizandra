@@ -26,7 +26,10 @@ abstract class _RegistrationStore with Store {
   String? atividadeFisica;
 
   @observable
-  int pageActive = 0;
+  int pageActive = 6;
+
+  @observable
+  double sliderAtividade = 0;
 
   @action
   Future<void> nextPage() async {
@@ -35,8 +38,21 @@ abstract class _RegistrationStore with Store {
   }
 
   @action
+  Future<void> backPage() async {
+    pageActive--;
+    print(pageActive);
+  }
+
+  @action
   Future<void> setName(String nomeRecebido) async {
     name = nomeRecebido;
+  }
+
+  @action
+  Future<void> setSliderAtividade(double slider) async {
+    sliderAtividade = slider;
+    print(sliderAtividade);
+    print(slider);
   }
 
   @action
