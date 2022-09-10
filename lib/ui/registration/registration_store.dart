@@ -1,4 +1,6 @@
 import 'package:mobx/mobx.dart';
+import 'package:realiza_nutri/database/shared_local_database/shared_storage.dart';
+
 part 'registration_store.g.dart';
 
 class RegistrationStore = _RegistrationStore with _$RegistrationStore;
@@ -8,39 +10,34 @@ abstract class _RegistrationStore with Store {
   String? name;
 
   @observable
-  String? idade;
+  String? age;
 
   @observable
-  String? peso;
+  String? weight;
 
   @observable
-  String? altura;
+  String? height;
 
   @observable
-  String? genero;
+  String? genre;
 
   @observable
-  String? objetivoNutricional;
+  String? nutritionalGoal;
 
   @observable
-  String? atividadeFisica;
+  int pageActive = 0;
 
   @observable
-  int pageActive = 6;
-
-  @observable
-  double sliderAtividade = 0;
+  int sliderAtividade = 0;
 
   @action
   Future<void> nextPage() async {
     pageActive++;
-    print(pageActive);
   }
 
   @action
   Future<void> backPage() async {
     pageActive--;
-    print(pageActive);
   }
 
   @action
@@ -49,39 +46,51 @@ abstract class _RegistrationStore with Store {
   }
 
   @action
-  Future<void> setSliderAtividade(double slider) async {
-    sliderAtividade = slider;
-    print(sliderAtividade);
-    print(slider);
+  Future<void> setAtividademin() async {
+    sliderAtividade--;
   }
 
   @action
-  Future<void> setIdade(String idadeRecebida) async {
-    idade = idadeRecebida;
+  Future<void> setAtividademax() async {
+    sliderAtividade++;
   }
 
   @action
-  Future<void> setPeso(String pesoRecebido) async {
-    peso = pesoRecebido;
+  Future<void> setAge(String idadeRecebida) async {
+    age = idadeRecebida;
   }
 
   @action
-  Future<void> setAltura(String alturaRecebida) async {
-    altura = alturaRecebida;
+  Future<void> setWeight(String pesoRecebido) async {
+    weight = pesoRecebido;
   }
 
   @action
-  Future<void> setGenero(String generoRecebido) async {
-    genero = generoRecebido;
+  Future<void> setHeight(String alturaRecebida) async {
+    height = alturaRecebida;
   }
 
   @action
-  Future<void> setObjetivo(String objetivoRecebido) async {
-    objetivoNutricional = objetivoRecebido;
+  Future<void> setGenre(String generoRecebido) async {
+    genre = generoRecebido;
   }
 
   @action
-  Future<void> setAtividade(String atividadeRecebida) async {
-    atividadeFisica = atividadeRecebida;
+  Future<void> setObjective(String objetivoRecebido) async {
+    nutritionalGoal = objetivoRecebido;
   }
+
+  @action
+  Future<void> saveLocal() async {
+    LocalStorageShared storage = LocalStorageShared();
+    await storage.put('registred', true);
+    storage.put('name', name);
+    storage.put('age', age);
+    storage.put('weight', weight);
+    storage.put('height', height);
+    storage.put('genre', genre);
+    storage.put('nutritionalGoal', nutritionalGoal);
+    storage.put('sliderAtividade', sliderAtividade);
+  }
+
 }

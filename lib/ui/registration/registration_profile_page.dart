@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -58,7 +55,7 @@ void _toast(String toast) {
       fontSize: 16.0);
 }
 
-solicitaNome() {
+Widget solicitaNome() {
   return Column(
     children: [
       const Text(
@@ -76,7 +73,7 @@ solicitaNome() {
           decoration: InputDecoration(
             enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(width: 0.2),
-              borderRadius: BorderRadius.all(const Radius.circular(14)),
+              borderRadius: BorderRadius.all(Radius.circular(14)),
             ),
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(width: 0.2),
@@ -99,28 +96,30 @@ solicitaNome() {
   );
 }
 
-solicitaIdade() {
+Widget solicitaIdade() {
   return Column(
     children: [
-      const Text(
-        'Qual sua idade?',
-        style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
-      ),
+      Observer(builder: (BuildContext context) {
+        return Text(
+          '${registrationStore.name}, qual sua idade?',
+          style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+        );
+      }),
       const SizedBox(
         height: 18,
       ),
       TextField(
         onChanged: (text) {
-          registrationStore.setIdade(text);
+          registrationStore.setAge(text);
         },
         controller: TextEditingController(),
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          enabledBorder: const OutlineInputBorder(
+        decoration: const InputDecoration(
+          enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
@@ -129,40 +128,54 @@ solicitaIdade() {
       const SizedBox(
         height: 12,
       ),
-      TextButton(
-        onPressed: () {
-          registrationStore.idade == null
-              ? _toast('Favor preencher sua idade')
-              : registrationStore.nextPage();
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        child: const Text('avançar'),
-      )
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextButton(
+            onPressed: () {
+              registrationStore.backPage();
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: const Text('voltar'),
+          ),
+          TextButton(
+            onPressed: () {
+              registrationStore.age == null
+                  ? _toast('Favor preencher sua idade')
+                  : registrationStore.nextPage();
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: const Text('avançar'),
+          ),
+        ],
+      ),
     ],
   );
 }
 
-solicitaPeso() {
+Widget solicitaPeso() {
   return Column(
     children: [
-      const Text(
-        'Qual seu peso?',
-        style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
-      ),
+      Observer(builder: (BuildContext context) {
+        return Text(
+          '${registrationStore.name}, qual seu peso atual?',
+          style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+        );
+      }),
       const SizedBox(
         height: 18,
       ),
       TextField(
         onChanged: (text) {
-          registrationStore.setPeso(text);
+          registrationStore.setWeight(text);
         },
         controller: TextEditingController(),
-        decoration: InputDecoration(
-          enabledBorder: const OutlineInputBorder(
+        decoration: const InputDecoration(
+          enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
-            borderRadius: const BorderRadius.all(const Radius.circular(14)),
+            borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
@@ -172,42 +185,56 @@ solicitaPeso() {
       const SizedBox(
         height: 12,
       ),
-      TextButton(
-        onPressed: () {
-          registrationStore.peso == null
-              ? _toast('Favor preencher seu peso')
-              : registrationStore.nextPage();
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        child: const Text('avançar'),
-      )
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextButton(
+            onPressed: () {
+              registrationStore.backPage();
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: const Text('voltar'),
+          ),
+          TextButton(
+            onPressed: () {
+              registrationStore.weight == null
+                  ? _toast('Favor preencher seu peso')
+                  : registrationStore.nextPage();
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: const Text('avançar'),
+          )
+        ],
+      ),
     ],
   );
 }
 
-solicitaAltura() {
+Widget solicitaAltura() {
   return Column(
     children: [
-      const Text(
-        'Qual sua altura?',
-        style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
-      ),
+      Observer(builder: (BuildContext context) {
+        return Text(
+          '${registrationStore.name}, qual sua altura?',
+          style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+        );
+      }),
       const SizedBox(
         height: 18,
       ),
       TextField(
         onChanged: (text) {
-          registrationStore.setAltura(text);
+          registrationStore.setHeight(text);
         },
         controller: TextEditingController(),
-        decoration: InputDecoration(
-          enabledBorder: const OutlineInputBorder(
+        decoration: const InputDecoration(
+          enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
-            borderRadius: const BorderRadius.all(Radius.circular(14)),
+            borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
-            borderRadius: const BorderRadius.all(const Radius.circular(14)),
+            borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
         ),
         keyboardType: TextInputType.number,
@@ -215,20 +242,32 @@ solicitaAltura() {
       const SizedBox(
         height: 12,
       ),
-      TextButton(
-        onPressed: () {
-          registrationStore.altura == null
-              ? _toast('Favor preencher sua altura')
-              : registrationStore.nextPage();
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        child: const Text('avançar'),
-      )
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextButton(
+            onPressed: () {
+              registrationStore.backPage();
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: const Text('voltar'),
+          ),
+          TextButton(
+            onPressed: () {
+              registrationStore.height == null
+                  ? _toast('Favor preencher sua altura')
+                  : registrationStore.nextPage();
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: const Text('avançar'),
+          )
+        ],
+      ),
     ],
   );
 }
 
-solicitaGen() {
+Widget solicitaGen() {
   return Column(
     children: [
       const Text(
@@ -245,7 +284,7 @@ solicitaGen() {
             children: [
               InkWell(
                 onTap: () {
-                  registrationStore.setGenero("FEM");
+                  registrationStore.setGenre("FEM");
                   registrationStore.nextPage();
                 },
                 child: Image.asset(
@@ -266,7 +305,7 @@ solicitaGen() {
             children: [
               InkWell(
                 onTap: () {
-                  registrationStore.setGenero("MASC");
+                  registrationStore.setGenre("MASC");
                   registrationStore.nextPage();
                 },
                 child: Image.asset(
@@ -285,25 +324,50 @@ solicitaGen() {
           ),
         ],
       ),
+      const SizedBox(
+        height: 32,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextButton(
+            onPressed: () {
+              registrationStore.backPage();
+            },
+            child: const Text('voltar'),
+          ),
+          TextButton(
+            onPressed: () {
+              registrationStore.setGenre("NAOINFORMADO");
+              registrationStore.nextPage();
+            },
+            child: const Text('prefiro \n não informar',
+                textAlign: TextAlign.center),
+          )
+        ],
+      ),
     ],
   );
 }
 
-solicitaObjetivo() {
+Widget solicitaObjetivo() {
   return Column(
     children: [
-      const Text(
-        'Qual seu objetivo nutricional?',
-        style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
-      ),
+      Observer(builder: (BuildContext context) {
+        return Text(
+          '${registrationStore.name}, qual sueu objetivo nutricional?',
+          style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+        );
+      }),
       const SizedBox(
         height: 18,
       ),
       Padding(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: TextButton(
           onPressed: () {
-            registrationStore.setObjetivo('Ganhar peso');
+            registrationStore.setObjective('Ganhar peso');
+            registrationStore.nextPage();
           },
           child: const Text(
             'Ganhar peso',
@@ -316,10 +380,11 @@ solicitaObjetivo() {
         ),
       ),
       Padding(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: TextButton(
           onPressed: () {
-            registrationStore.setObjetivo('Manter meu peso');
+            registrationStore.setObjective('Manter meu peso');
+            registrationStore.nextPage();
           },
           child: const Text(
             'Manter meu peso',
@@ -332,10 +397,11 @@ solicitaObjetivo() {
         ),
       ),
       Padding(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: TextButton(
           onPressed: () {
-            registrationStore.setObjetivo('Perder peso');
+            registrationStore.setObjective('Perder peso');
+            registrationStore.nextPage();
           },
           child: const Text(
             'Perder peso',
@@ -359,7 +425,7 @@ solicitaObjetivo() {
           ),
           TextButton(
             onPressed: () {
-              registrationStore.objetivoNutricional == null
+              registrationStore.nutritionalGoal == null
                   ? _toast('Opss, escolha uma das opções acima')
                   : registrationStore.nextPage();
             },
@@ -370,39 +436,159 @@ solicitaObjetivo() {
     ],
   );
 }
+class solicitaAtividade extends StatelessWidget {
+  const solicitaAtividade({Key? key}) : super(key: key);
 
-solicitaAtividade() {
-  return Column(
-    children: [
-      const Text(
-        'Quanto você pratica de atividades físicas diariamente?',
-        style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
-      ),
-      Row(children: [
-        Image.asset('teste'),
-        Text('${registrationStore.sliderAtividade}'),
-        Image.asset('teste'),
-      ],),
-      const SizedBox(
-        height: 18,
-      ),
-      TextButton(
-        onPressed: () {
-          registrationStore.atividadeFisica == null
-              ? _toast('Favor preencher')
-              : FirebaseData.saveRegister(
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const Text(
+          'De 0 à 10, informe o quando você pratica de exercícios',
+          textAlign: TextAlign.center,
+          style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+        ),
+        const SizedBox(
+          height: 12,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+                onPressed: () {
+                  registrationStore.setAtividademin();
+                },
+                icon: const Icon(
+                  Icons.navigate_before,
+                  size: 32,
+                )),
+            Observer(builder: (BuildContext context) {
+              return Center(
+                child: Text(
+                  '${registrationStore.sliderAtividade}',
+                  style:
+                  TextStyle(fontSize: 62, color: ColorsUtils.greenSecondary),
+                ),
+              );
+            }),
+            IconButton(
+                onPressed: () {
+                  registrationStore.setAtividademax();
+                },
+                icon: const Icon(
+                  Icons.navigate_next,
+                  size: 32,
+                )),
+          ],
+        ),
+        const SizedBox(
+          height: 32,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextButton(
+              onPressed: () => registrationStore.backPage(),
+              child: const Text('voltar'),
+            ),
+            TextButton(
+              onPressed: () {
+                registrationStore.sliderAtividade == null
+                    ? _toast('Favor preencher')
+                    : FirebaseData.saveRegister(
                   '${registrationStore.name}',
-                  '${registrationStore.idade}',
-                  '${registrationStore.peso}',
-                  '${registrationStore.altura}',
-                  '${registrationStore.genero}',
-                  '${registrationStore.objetivoNutricional}',
-                  '${registrationStore.atividadeFisica}',
+                  '${registrationStore.age}',
+                  '${registrationStore.weight}',
+                  '${registrationStore.height}',
+                  '${registrationStore.genre}',
+                  '${registrationStore.nutritionalGoal}',
+                  '${registrationStore.sliderAtividade}',
                 );
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        child: const Text('avançar'),
-      )
-    ],
-  );
+                registrationStore.saveLocal();
+                Navigator.pushNamed(context, 'home');
+              },
+              child: const Text('finalizar'),
+            )
+          ],
+        )
+      ],
+    );
+  }
 }
+
+// Widget solicitaAtividade(BuildContext context) {
+//   return Column(
+//     crossAxisAlignment: CrossAxisAlignment.center,
+//     children: [
+//       const Text(
+//         'De 0 à 10, informe o quando você pratica de exercícios',
+//         textAlign: TextAlign.center,
+//         style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+//       ),
+//       const SizedBox(
+//         height: 12,
+//       ),
+//       Row(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           IconButton(
+//               onPressed: () {
+//                 registrationStore.setAtividademin();
+//               },
+//               icon: const Icon(
+//                 Icons.navigate_before,
+//                 size: 32,
+//               )),
+//           Observer(builder: (BuildContext context) {
+//             return Center(
+//               child: Text(
+//                 '${registrationStore.sliderAtividade}',
+//                 style:
+//                     TextStyle(fontSize: 62, color: ColorsUtils.greenSecondary),
+//               ),
+//             );
+//           }),
+//           IconButton(
+//               onPressed: () {
+//                 registrationStore.setAtividademax();
+//               },
+//               icon: const Icon(
+//                 Icons.navigate_next,
+//                 size: 32,
+//               )),
+//         ],
+//       ),
+//       const SizedBox(
+//         height: 32,
+//       ),
+//       Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           TextButton(
+//             onPressed: () => registrationStore.backPage(),
+//             child: const Text('voltar'),
+//           ),
+//           TextButton(
+//             onPressed: () {
+//               registrationStore.sliderAtividade == null
+//                   ? _toast('Favor preencher')
+//                   : FirebaseData.saveRegister(
+//                       '${registrationStore.name}',
+//                       '${registrationStore.age}',
+//                       '${registrationStore.weight}',
+//                       '${registrationStore.height}',
+//                       '${registrationStore.genre}',
+//                       '${registrationStore.nutritionalGoal}',
+//                       '${registrationStore.sliderAtividade}',
+//                     );
+//               registrationStore.saveLocal();
+//               Navigator.pushNamed(context, 'home');
+//             },
+//             child: const Text('finalizar'),
+//           )
+//         ],
+//       )
+//     ],
+//   );
+// }

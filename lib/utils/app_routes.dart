@@ -57,7 +57,7 @@ class RouteGenerator {
 
   static Route<dynamic> _erroRoute() {
     return MaterialPageRoute(builder: (_) {
-      return Scaffold(
+      return const Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(65),
           child: Text('ERROR'),

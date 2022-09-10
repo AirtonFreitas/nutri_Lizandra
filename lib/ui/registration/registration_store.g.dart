@@ -25,99 +25,82 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
     });
   }
 
-  late final _$idadeAtom =
-      Atom(name: '_RegistrationStore.idade', context: context);
+  late final _$ageAtom = Atom(name: '_RegistrationStore.age', context: context);
 
   @override
-  String? get idade {
-    _$idadeAtom.reportRead();
-    return super.idade;
+  String? get age {
+    _$ageAtom.reportRead();
+    return super.age;
   }
 
   @override
-  set idade(String? value) {
-    _$idadeAtom.reportWrite(value, super.idade, () {
-      super.idade = value;
+  set age(String? value) {
+    _$ageAtom.reportWrite(value, super.age, () {
+      super.age = value;
     });
   }
 
-  late final _$pesoAtom =
-      Atom(name: '_RegistrationStore.peso', context: context);
+  late final _$weightAtom =
+      Atom(name: '_RegistrationStore.weight', context: context);
 
   @override
-  String? get peso {
-    _$pesoAtom.reportRead();
-    return super.peso;
+  String? get weight {
+    _$weightAtom.reportRead();
+    return super.weight;
   }
 
   @override
-  set peso(String? value) {
-    _$pesoAtom.reportWrite(value, super.peso, () {
-      super.peso = value;
+  set weight(String? value) {
+    _$weightAtom.reportWrite(value, super.weight, () {
+      super.weight = value;
     });
   }
 
-  late final _$alturaAtom =
-      Atom(name: '_RegistrationStore.altura', context: context);
+  late final _$heightAtom =
+      Atom(name: '_RegistrationStore.height', context: context);
 
   @override
-  String? get altura {
-    _$alturaAtom.reportRead();
-    return super.altura;
+  String? get height {
+    _$heightAtom.reportRead();
+    return super.height;
   }
 
   @override
-  set altura(String? value) {
-    _$alturaAtom.reportWrite(value, super.altura, () {
-      super.altura = value;
+  set height(String? value) {
+    _$heightAtom.reportWrite(value, super.height, () {
+      super.height = value;
     });
   }
 
-  late final _$generoAtom =
-      Atom(name: '_RegistrationStore.genero', context: context);
+  late final _$genreAtom =
+      Atom(name: '_RegistrationStore.genre', context: context);
 
   @override
-  String? get genero {
-    _$generoAtom.reportRead();
-    return super.genero;
+  String? get genre {
+    _$genreAtom.reportRead();
+    return super.genre;
   }
 
   @override
-  set genero(String? value) {
-    _$generoAtom.reportWrite(value, super.genero, () {
-      super.genero = value;
+  set genre(String? value) {
+    _$genreAtom.reportWrite(value, super.genre, () {
+      super.genre = value;
     });
   }
 
-  late final _$objetivoNutricionalAtom =
-      Atom(name: '_RegistrationStore.objetivoNutricional', context: context);
+  late final _$nutritionalGoalAtom =
+      Atom(name: '_RegistrationStore.nutritionalGoal', context: context);
 
   @override
-  String? get objetivoNutricional {
-    _$objetivoNutricionalAtom.reportRead();
-    return super.objetivoNutricional;
+  String? get nutritionalGoal {
+    _$nutritionalGoalAtom.reportRead();
+    return super.nutritionalGoal;
   }
 
   @override
-  set objetivoNutricional(String? value) {
-    _$objetivoNutricionalAtom.reportWrite(value, super.objetivoNutricional, () {
-      super.objetivoNutricional = value;
-    });
-  }
-
-  late final _$atividadeFisicaAtom =
-      Atom(name: '_RegistrationStore.atividadeFisica', context: context);
-
-  @override
-  String? get atividadeFisica {
-    _$atividadeFisicaAtom.reportRead();
-    return super.atividadeFisica;
-  }
-
-  @override
-  set atividadeFisica(String? value) {
-    _$atividadeFisicaAtom.reportWrite(value, super.atividadeFisica, () {
-      super.atividadeFisica = value;
+  set nutritionalGoal(String? value) {
+    _$nutritionalGoalAtom.reportWrite(value, super.nutritionalGoal, () {
+      super.nutritionalGoal = value;
     });
   }
 
@@ -137,12 +120,36 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
     });
   }
 
+  late final _$sliderAtividadeAtom =
+      Atom(name: '_RegistrationStore.sliderAtividade', context: context);
+
+  @override
+  int get sliderAtividade {
+    _$sliderAtividadeAtom.reportRead();
+    return super.sliderAtividade;
+  }
+
+  @override
+  set sliderAtividade(int value) {
+    _$sliderAtividadeAtom.reportWrite(value, super.sliderAtividade, () {
+      super.sliderAtividade = value;
+    });
+  }
+
   late final _$nextPageAsyncAction =
       AsyncAction('_RegistrationStore.nextPage', context: context);
 
   @override
   Future<void> nextPage() {
     return _$nextPageAsyncAction.run(() => super.nextPage());
+  }
+
+  late final _$backPageAsyncAction =
+      AsyncAction('_RegistrationStore.backPage', context: context);
+
+  @override
+  Future<void> backPage() {
+    return _$backPageAsyncAction.run(() => super.backPage());
   }
 
   late final _$setNameAsyncAction =
@@ -153,67 +160,82 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
     return _$setNameAsyncAction.run(() => super.setName(nomeRecebido));
   }
 
-  late final _$setIdadeAsyncAction =
-      AsyncAction('_RegistrationStore.setIdade', context: context);
+  late final _$setAtividademinAsyncAction =
+      AsyncAction('_RegistrationStore.setAtividademin', context: context);
 
   @override
-  Future<void> setIdade(String idadeRecebida) {
-    return _$setIdadeAsyncAction.run(() => super.setIdade(idadeRecebida));
+  Future<void> setAtividademin() {
+    return _$setAtividademinAsyncAction.run(() => super.setAtividademin());
   }
 
-  late final _$setPesoAsyncAction =
-      AsyncAction('_RegistrationStore.setPeso', context: context);
+  late final _$setAtividademaxAsyncAction =
+      AsyncAction('_RegistrationStore.setAtividademax', context: context);
 
   @override
-  Future<void> setPeso(String pesoRecebido) {
-    return _$setPesoAsyncAction.run(() => super.setPeso(pesoRecebido));
+  Future<void> setAtividademax() {
+    return _$setAtividademaxAsyncAction.run(() => super.setAtividademax());
   }
 
-  late final _$setAlturaAsyncAction =
-      AsyncAction('_RegistrationStore.setAltura', context: context);
+  late final _$setAgeAsyncAction =
+      AsyncAction('_RegistrationStore.setAge', context: context);
 
   @override
-  Future<void> setAltura(String alturaRecebida) {
-    return _$setAlturaAsyncAction.run(() => super.setAltura(alturaRecebida));
+  Future<void> setAge(String idadeRecebida) {
+    return _$setAgeAsyncAction.run(() => super.setAge(idadeRecebida));
   }
 
-  late final _$setGeneroAsyncAction =
-      AsyncAction('_RegistrationStore.setGenero', context: context);
+  late final _$setWeightAsyncAction =
+      AsyncAction('_RegistrationStore.setWeight', context: context);
 
   @override
-  Future<void> setGenero(String generoRecebido) {
-    return _$setGeneroAsyncAction.run(() => super.setGenero(generoRecebido));
+  Future<void> setWeight(String pesoRecebido) {
+    return _$setWeightAsyncAction.run(() => super.setWeight(pesoRecebido));
   }
 
-  late final _$setObjetivoAsyncAction =
-      AsyncAction('_RegistrationStore.setObjetivo', context: context);
+  late final _$setHeightAsyncAction =
+      AsyncAction('_RegistrationStore.setHeight', context: context);
 
   @override
-  Future<void> setObjetivo(String objetivoRecebido) {
-    return _$setObjetivoAsyncAction
-        .run(() => super.setObjetivo(objetivoRecebido));
+  Future<void> setHeight(String alturaRecebida) {
+    return _$setHeightAsyncAction.run(() => super.setHeight(alturaRecebida));
   }
 
-  late final _$setAtividadeAsyncAction =
-      AsyncAction('_RegistrationStore.setAtividade', context: context);
+  late final _$setGenreAsyncAction =
+      AsyncAction('_RegistrationStore.setGenre', context: context);
 
   @override
-  Future<void> setAtividade(String atividadeRecebida) {
-    return _$setAtividadeAsyncAction
-        .run(() => super.setAtividade(atividadeRecebida));
+  Future<void> setGenre(String generoRecebido) {
+    return _$setGenreAsyncAction.run(() => super.setGenre(generoRecebido));
+  }
+
+  late final _$setObjectiveAsyncAction =
+      AsyncAction('_RegistrationStore.setObjective', context: context);
+
+  @override
+  Future<void> setObjective(String objetivoRecebido) {
+    return _$setObjectiveAsyncAction
+        .run(() => super.setObjective(objetivoRecebido));
+  }
+
+  late final _$saveLocalAsyncAction =
+      AsyncAction('_RegistrationStore.saveLocal', context: context);
+
+  @override
+  Future<void> saveLocal() {
+    return _$saveLocalAsyncAction.run(() => super.saveLocal());
   }
 
   @override
   String toString() {
     return '''
 name: ${name},
-idade: ${idade},
-peso: ${peso},
-altura: ${altura},
-genero: ${genero},
-objetivoNutricional: ${objetivoNutricional},
-atividadeFisica: ${atividadeFisica},
-pageActive: ${pageActive}
+age: ${age},
+weight: ${weight},
+height: ${height},
+genre: ${genre},
+nutritionalGoal: ${nutritionalGoal},
+pageActive: ${pageActive},
+sliderAtividade: ${sliderAtividade}
     ''';
   }
 }
