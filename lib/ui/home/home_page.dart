@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:realiza_nutri/ui/home/home_store.dart';
+import 'components/body_home_registery_widget.dart';
 import 'components/body_home_widget.dart';
 
 final homeStore = HomeStore();
@@ -25,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
       child: Observer(builder: (BuildContext context) {
         return homeStore.registred == true
-            ? Text('Olá ${homeStore.name}')
-            : const BodyHomeWidget();
+            ? const BodyHomeWidget()
+            : const BodyHomeRegisteryWidget();
       }),
 
 

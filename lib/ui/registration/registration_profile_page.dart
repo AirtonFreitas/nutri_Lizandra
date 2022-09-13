@@ -101,7 +101,7 @@ Widget solicitaIdade() {
     children: [
       Observer(builder: (BuildContext context) {
         return Text(
-          '${registrationStore.name}, qual sua idade?',
+          '${registrationStore.name?.split(' ')[0]}, qual sua idade?',
           style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
         );
       }),
@@ -158,7 +158,7 @@ Widget solicitaPeso() {
     children: [
       Observer(builder: (BuildContext context) {
         return Text(
-          '${registrationStore.name}, qual seu peso atual?',
+          '${registrationStore.name?.split(' ')[0]}, qual seu peso atual?',
           style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
         );
       }),
@@ -215,7 +215,7 @@ Widget solicitaAltura() {
     children: [
       Observer(builder: (BuildContext context) {
         return Text(
-          '${registrationStore.name}, qual sua altura?',
+          '${registrationStore.name?.split(' ')[0]}, qual sua altura?',
           style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
         );
       }),
@@ -355,7 +355,7 @@ Widget solicitaObjetivo() {
     children: [
       Observer(builder: (BuildContext context) {
         return Text(
-          '${registrationStore.name}, qual sueu objetivo nutricional?',
+          '${registrationStore.name?.split(' ')[0]}, qual sueu objetivo nutricional?',
           style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
         );
       }),
@@ -516,79 +516,3 @@ class solicitaAtividade extends StatelessWidget {
     );
   }
 }
-
-// Widget solicitaAtividade(BuildContext context) {
-//   return Column(
-//     crossAxisAlignment: CrossAxisAlignment.center,
-//     children: [
-//       const Text(
-//         'De 0 à 10, informe o quando você pratica de exercícios',
-//         textAlign: TextAlign.center,
-//         style: TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
-//       ),
-//       const SizedBox(
-//         height: 12,
-//       ),
-//       Row(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           IconButton(
-//               onPressed: () {
-//                 registrationStore.setAtividademin();
-//               },
-//               icon: const Icon(
-//                 Icons.navigate_before,
-//                 size: 32,
-//               )),
-//           Observer(builder: (BuildContext context) {
-//             return Center(
-//               child: Text(
-//                 '${registrationStore.sliderAtividade}',
-//                 style:
-//                     TextStyle(fontSize: 62, color: ColorsUtils.greenSecondary),
-//               ),
-//             );
-//           }),
-//           IconButton(
-//               onPressed: () {
-//                 registrationStore.setAtividademax();
-//               },
-//               icon: const Icon(
-//                 Icons.navigate_next,
-//                 size: 32,
-//               )),
-//         ],
-//       ),
-//       const SizedBox(
-//         height: 32,
-//       ),
-//       Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//         children: [
-//           TextButton(
-//             onPressed: () => registrationStore.backPage(),
-//             child: const Text('voltar'),
-//           ),
-//           TextButton(
-//             onPressed: () {
-//               registrationStore.sliderAtividade == null
-//                   ? _toast('Favor preencher')
-//                   : FirebaseData.saveRegister(
-//                       '${registrationStore.name}',
-//                       '${registrationStore.age}',
-//                       '${registrationStore.weight}',
-//                       '${registrationStore.height}',
-//                       '${registrationStore.genre}',
-//                       '${registrationStore.nutritionalGoal}',
-//                       '${registrationStore.sliderAtividade}',
-//                     );
-//               registrationStore.saveLocal();
-//               Navigator.pushNamed(context, 'home');
-//             },
-//             child: const Text('finalizar'),
-//           )
-//         ],
-//       )
-//     ],
-//   );
-// }

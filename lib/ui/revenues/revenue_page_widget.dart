@@ -22,7 +22,7 @@ class _RevenueDetailsState extends State<RevenueDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsUtils.greenPrimary,
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: AppBarRevenueWidget(
           title: 'Receitas Fit',
@@ -50,7 +50,7 @@ class _RevenueDetailsState extends State<RevenueDetails> {
         ),
         child: Column(
           children: [
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -63,8 +63,8 @@ class _RevenueDetailsState extends State<RevenueDetails> {
                         child: Icon(Icons.coffee_outlined,
                             size: 40, color: ColorsUtils.purpleSecondary),
                       ),
-                      SizedBox(height: 4),
-                      Text(
+                      const SizedBox(height: 4),
+                      const Text(
                         'Café',
                         style: TextStyle(fontSize: 12),
                       ),
@@ -85,8 +85,8 @@ class _RevenueDetailsState extends State<RevenueDetails> {
                         child: Icon(Icons.lunch_dining_rounded,
                             size: 40, color: ColorsUtils.blueSecondary),
                       ),
-                      SizedBox(height: 4),
-                      Text(
+                      const SizedBox(height: 4),
+                      const Text(
                         'Lanches',
                         style: TextStyle(fontSize: 12),
                       ),
@@ -107,8 +107,8 @@ class _RevenueDetailsState extends State<RevenueDetails> {
                         child: Icon(Icons.dinner_dining_outlined,
                             size: 40, color: ColorsUtils.redSecondary),
                       ),
-                      SizedBox(height: 4),
-                      Text(
+                      const SizedBox(height: 4),
+                      const Text(
                         'Refeições',
                         style: TextStyle(fontSize: 12),
                       )
@@ -129,8 +129,8 @@ class _RevenueDetailsState extends State<RevenueDetails> {
                         child: Icon(Icons.cookie_outlined,
                             size: 40, color: ColorsUtils.yellowSecondary),
                       ),
-                      SizedBox(height: 4),
-                      Text(
+                      const SizedBox(height: 4),
+                      const Text(
                         'Doces',
                         style: TextStyle(fontSize: 12),
                       )
@@ -144,7 +144,7 @@ class _RevenueDetailsState extends State<RevenueDetails> {
                 ),
               ],
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             //_widgetScreenRevenue(),
             _widgetOptions.elementAt(_bodySelected),
             _modoPago(),
@@ -163,32 +163,32 @@ class _RevenueDetailsState extends State<RevenueDetails> {
             .width,
           height: 1,
           color: ColorsUtils.gray,),
-        SizedBox(
+        const SizedBox(
           height: 28,
         ),
-        Text('Tenha acesso ao modo completo',
+        const Text('Tenha acesso ao modo completo',
           style: TextStyle(fontSize: 22, fontFamily: 'GeosansLight'),),
-        SizedBox(
+        const SizedBox(
           height: 12,
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Chat direto com a nutri',
+            const Text('Chat direto com a nutri',
               style: TextStyle(fontSize: 12, fontFamily: 'GeosansLight'),),
-            SizedBox(
+            const SizedBox(
               width: 12,
             ),
             Stack(
               children: [
                 InkWell(onTap: _chamaZap,
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     radius: 40,
                     backgroundImage: AssetImage('assets/foto_nutri.png'),
                   ),
                 ),
                 Positioned(bottom: 0, right: 0,
                   child: InkWell(onTap: _chamaZap,
-                    child: CircleAvatar(radius: 15,
+                    child: const CircleAvatar(radius: 15,
                       backgroundImage: AssetImage('assets/icon_zap.png'),
                     ),
                   ),)
@@ -196,20 +196,20 @@ class _RevenueDetailsState extends State<RevenueDetails> {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 12,
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Olha só tudo que tem incluso:',
               style: TextStyle(
                   fontFamily: 'GeosansLight',
                   fontSize: 20,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             ItemsPakageCompleted(
                 check: true, nameItem: 'Mais de 100 receitas saudáveis'),
             ItemsPakageCompleted(
@@ -219,6 +219,9 @@ class _RevenueDetailsState extends State<RevenueDetails> {
             ItemsPakageCompleted(check: true, nameItem: 'Dicas Nutricionais'),
             ItemsPakageCompleted(check: true, nameItem: 'Grupo de Desafios'),
           ],
+        ),
+        const SizedBox(
+          height: 12,
         ),
       ],
 
