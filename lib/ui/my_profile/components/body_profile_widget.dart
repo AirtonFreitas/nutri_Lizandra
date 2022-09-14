@@ -13,7 +13,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
     return Padding(padding: EdgeInsets.only(top: 12),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Row(mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               'Meu Perfil aqui embaixo:',
               style: TextStyle(

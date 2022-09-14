@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ),
       child: Observer(builder: (BuildContext context) {
-        return homeStore.registred == true
+        return homeStore.registred
             ? const BodyHomeWidget()
             : const BodyHomeRegisteryWidget();
       }),
