@@ -49,7 +49,7 @@ abstract class _MyProfileStore with Store {
     final registery = await storage.get("registred");
     final nameStorage = await storage.get("name");
     final ageStorage = await storage.get('age');
-    String weightStorage = await storage.get('weight');
+    final weightStorage = await storage.get('weight');
     final heightStorage = await storage.get('height');
     final genreStorage = await storage.get('genre');
     final nutritionalGoalStorage = await storage.get('nutritionalGoal');

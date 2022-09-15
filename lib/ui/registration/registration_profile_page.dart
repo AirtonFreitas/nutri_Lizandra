@@ -158,7 +158,7 @@ Widget solicitaPeso() {
     children: [
       Observer(builder: (BuildContext context) {
         return Text(
-          '${registrationStore.name?.split(' ')[0]}, qual seu peso atual?',
+          '${registrationStore.name?.split(' ')[0]}, qual seu peso?',
           style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
         );
       }),
