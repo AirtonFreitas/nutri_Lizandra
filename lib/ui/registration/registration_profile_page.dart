@@ -284,7 +284,7 @@ Widget solicitaGen() {
             children: [
               InkWell(
                 onTap: () {
-                  registrationStore.setGenre("FEM");
+                  registrationStore.setGenre("fem");
                   registrationStore.nextPage();
                 },
                 child: Image.asset(
@@ -305,7 +305,7 @@ Widget solicitaGen() {
             children: [
               InkWell(
                 onTap: () {
-                  registrationStore.setGenre("MASC");
+                  registrationStore.setGenre("masc");
                   registrationStore.nextPage();
                 },
                 child: Image.asset(
@@ -338,7 +338,7 @@ Widget solicitaGen() {
           ),
           TextButton(
             onPressed: () {
-              registrationStore.setGenre("NAOINFORMADO");
+              registrationStore.setGenre("uni");
               registrationStore.nextPage();
             },
             child: const Text('prefiro \n não informar',

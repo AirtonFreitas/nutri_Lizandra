@@ -8,7 +8,7 @@ class PacoteCompleto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: AppBarPackageCompleteWidget(
           imageBar: 'pera',
@@ -18,19 +18,19 @@ class PacoteCompleto extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'Programa completo com Acompanhamento',
             style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
           ),
-          SizedBox(height: 8),
-          Text(
+          const SizedBox(height: 8),
+          const Text(
             'olha só tudo que tem incluso:',
             style: TextStyle(
                 fontFamily: 'GeosansLight',
                 fontSize: 20,
                 fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           ItemsPakageCompleted(
               check: true, nameItem: 'Mais de 100 receitas saudáveis'),
           ItemsPakageCompleted(
