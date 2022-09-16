@@ -14,6 +14,11 @@ class ColorsUtils {
   static final gray = Color(0xFFA9A9A9);
 
   static final redPrimary = Color(0xFFFDD2D2);
+  static final red = Color(0xFFFF4747);
+  static final blue = Color(0xFF579FFF);
+  static final green = Color(0xFF009400);
+  static final yellow = Color(0xFFFFFF00);
+  static final orange = Color(0xFFFF7300);
   static final purplePrimary = Color(0xFFE7D2FD);
   static final bluePrimary = Color(0xFFD2E8FD);
   static final yellowPrimary = Color(0xFFFDF6D2);
