@@ -25,8 +25,8 @@ class _NavigationPage extends State<NavigationPage> {
       appBar: AppBar(toolbarHeight: 65,
         backgroundColor: ColorsUtils.greenPrimary,
         elevation: 0,
-        title: AppBarNavigationWidget(
-            title: 'Realiza Nutri',
+        title: const AppBarNavigationWidget(
+            title: 'Saúde nas mãos',
           ),
         leading: Builder(
           builder: (BuildContext context) {
@@ -45,7 +45,7 @@ class _NavigationPage extends State<NavigationPage> {
           },
         ),
       ),
-      drawer: DrawerApp(),
+      drawer: const DrawerApp(),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

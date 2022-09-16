@@ -28,12 +28,13 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
               child: Column(children: [
                 const Text(
                   'Meu perfil',
-                  style: TextStyle(fontSize: 22, fontFamily: 'GeosansLight'),
+                  style: TextStyle(fontSize: 28, fontFamily: 'GeosansLight'),
                 ),
-                Row(children: [Image.asset(
-                  'assets/${profileStore.genre}.png',
-                  width: 128,
-                ),
+                Row(children: [
+                  Image.asset(
+                    'assets/${profileStore.genre}.png',
+                    width: 128,
+                  ),
                   Observer(builder: (BuildContext context) {
                     return Text(
                       '${profileStore.name}',
@@ -110,20 +111,30 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
                 const SizedBox(
                   height: 8,
                 ),
-                InkWell(onTap: (){
-                  Navigator.pushNamed(context, 'registration-name');
-                },
-                  child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Text(
-                      'editar perfil',
-                      style: TextStyle(fontFamily: 'GeosansLight'),
-                    ), SizedBox(width: 8,),
-                    Icon(Icons.edit,size: 14),
-                  ],
-                ),),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'registration-name');
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'editar perfil',
+                        style: TextStyle(fontFamily: 'GeosansLight'),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Icon(Icons.edit, size: 14),
+                    ],
+                  ),
+                ),
                 const SizedBox(
-                  height: 32,
+                  height: 8,
+                ),
+                _linhaHorizontal(),
+                const SizedBox(
+                  height: 28,
                 ),
                 Observer(builder: (BuildContext context) {
                   return Text.rich(
@@ -378,11 +389,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
         const SizedBox(
           height: 18,
         ),
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: 0.5,
-          color: ColorsUtils.gray,
-        ),
+        _linhaHorizontal(),
         const SizedBox(
           height: 28,
         ),
@@ -468,11 +475,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
         const SizedBox(
           height: 18,
         ),
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: 0.5,
-          color: ColorsUtils.gray,
-        ),
+        _linhaHorizontal(),
         const SizedBox(
           height: 28,
         ),
@@ -485,6 +488,14 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
           height: 8,
         ),
       ],
+    );
+  }
+
+  Widget _linhaHorizontal() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 0.5,
+      color: ColorsUtils.gray,
     );
   }
 
