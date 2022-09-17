@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:realiza_nutri/src/utils/colors_utils.dart';
 import '../profile_nutri//components/app_bar.dart';
 import 'components/body_profile_nutri_widget.dart';
 
@@ -12,11 +13,10 @@ class ProfileNutriScreen extends StatefulWidget {
 class _ProfileNutriScreenState extends State<ProfileNutriScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
+    return Scaffold(backgroundColor: ColorsUtils.greenPrimary,
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(65),
-        child: AppBarHomeWidget(
-          imageBar: 'pera',
+        child: AppBarProfileNutriWidget(
           title: 'Conhecendo a Nutri',
         ),
       ),
