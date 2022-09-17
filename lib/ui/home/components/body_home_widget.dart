@@ -64,7 +64,11 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
               ),
               _firstBanner(),
               const SizedBox(
-                height: 12,
+                height: 18,
+              ),
+              _nutricaoComportamental(),
+              const SizedBox(
+                height: 18,
               ),
               CarouselSlider(items: [
                 _caruoselBanner(
@@ -171,6 +175,26 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
             ItemsPakageCompleted(check: true, nameItem: 'Dicas Nutricionais'),
             ItemsPakageCompleted(
                 check: true, nameItem: 'Desafio de emagrecimento'),
+            ItemsPakageCompleted(
+                check: true, nameItem: 'Aprenda a ler rótulo dos alimentos'),
+            const SizedBox(
+              height: 12,
+            ),
+            const Text('Vamos parar de uma vez com',style: TextStyle(
+                fontFamily: 'GeosansLight',
+                fontSize: 20,
+                ),),
+            const SizedBox(
+              height: 12,
+            ),
+            ItemsPakageCompleted(
+                check: false, nameItem: 'Não consigo seguir o plano alimentar'),
+            ItemsPakageCompleted(
+                check: false, nameItem: 'Comi de nervoso'),
+            ItemsPakageCompleted(
+                check: false, nameItem: 'Vou fazer jejum'),
+            ItemsPakageCompleted(
+                check: false, nameItem: 'Efeito sanfona'),
           ],
         ),
         const SizedBox(
@@ -189,11 +213,19 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
   }
 
   Future<void> _chamaZap() async {
-    final Uri _url = Uri.parse(
+    final Uri url = Uri.parse(
         'https://api.whatsapp.com/send?phone=5531987065718&text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20completo%20do%20app%20nutricional.');
-    if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $_url';
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $url';
     }
+  }
+  Widget _nutricaoComportamental(){
+    return Column(children: const [
+Text('Apesar da grande quantidade de informações sobre alimentos e dietas, as pessoas continuam enxergando a comida como grande inimiga. A nutrição comportamental tem como objetivo mudar essa relação, fazendo com que as pessoas sintam prazer (e não culpa) ao comer.',
+style:
+        TextStyle(fontSize: 18, fontFamily: 'GeosansLight')
+),
+    ],);
   }
 
   Widget _firstBanner() {

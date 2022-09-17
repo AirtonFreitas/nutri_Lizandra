@@ -500,10 +500,10 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
   }
 
   Future<void> _chamaZap() async {
-    final Uri _url = Uri.parse(
+    final Uri url = Uri.parse(
         'https://api.whatsapp.com/send?phone=5531987065718&text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20completo%20do%20app%20nutricional.');
-    if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $_url';
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $url';
     }
   }
 }
