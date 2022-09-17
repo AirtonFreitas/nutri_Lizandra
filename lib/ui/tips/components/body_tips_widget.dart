@@ -10,23 +10,30 @@ class BodyTipsWidget extends StatefulWidget {
 class _BodyTipsWidgetState extends State<BodyTipsWidget> {
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.only(top: 12),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Row(mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Body Tips Widget',
-              style: TextStyle(
-                  fontSize: 22,
-                  fontFamily: 'GeosansLight',
-                  fontWeight: FontWeight.w700),
-            )
-          ],
-        ),
-        Row(children: [
-
-                  ]),
-      ]),
-    );
+    return SingleChildScrollView(
+        child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(40),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 18,horizontal: 12 ),
+              child: Column(
+                children: [
+                  const Text(
+                    'Dicas Nutricionais',
+                    style: TextStyle(fontFamily: 'GeosansLight', fontSize: 28),
+                  ),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  Image.asset('assets/dicas.png'),
+                ],
+              ),
+            )));
   }
 }

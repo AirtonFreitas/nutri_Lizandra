@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../navigation/navigation_bottom_widget.dart';
+import 'package:realiza_nutri/src/utils/colors_utils.dart';
 import 'components/app_bar.dart';
-import '../../src/utils/drawer_app.dart';
 import 'components/body_tips_widget.dart';
 
 class TipsScreen extends StatefulWidget {
@@ -14,15 +13,14 @@ class TipsScreen extends StatefulWidget {
 class _TipsScreenState extends State<TipsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
+    return Scaffold(backgroundColor: ColorsUtils.greenPrimary,
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(65),
-        child: AppBarHomeWidget(
-          imageBar: 'pera',
+        child: AppBarTipsWidget(
           title: 'Dicas Nutricionais',
         ),
       ),
-      body: BodyTipsWidget(),
+      body: const BodyTipsWidget(),
     );
   }
 }

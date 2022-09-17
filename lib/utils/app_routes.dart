@@ -7,7 +7,6 @@ import '../ui/healthy_habits/healthy_habits_page.dart';
 import '../ui/main_errors/main_errors_page.dart';
 import '../ui/my_profile/my_profile_page.dart';
 import '../ui/navigation/navigation_page.dart';
-import '../ui/package_complete/package_completed_page.dart';
 import '../ui/profile_nutri/profile_nutri_page.dart';
 import '../ui/revenues/revenue_page_widget.dart';
 import '../src/utils/drawer_app.dart';
@@ -40,8 +39,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => TipsScreen());
       case 'profile_nutri':
         return MaterialPageRoute(builder: (_) => ProfileNutriScreen());
-      case 'premium-package':
-        return MaterialPageRoute(builder: (_) => PacoteCompleto());
       case 'registration-name':
         return MaterialPageRoute(builder: (_) => RegistrationProfile());
       // case 'registration-age': (context){

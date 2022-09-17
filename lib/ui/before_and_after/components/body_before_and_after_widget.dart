@@ -10,23 +10,19 @@ class BodyBeforeAndAfterWidget extends StatefulWidget {
 class _BodyBeforeAndAfterWidgetState extends State<BodyBeforeAndAfterWidget> {
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.only(top: 12),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Row(mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Body Before And After Widget',
-              style: TextStyle(
-                  fontSize: 22,
-                  fontFamily: 'GeosansLight',
-                  fontWeight: FontWeight.w700),
-            )
-          ],
-        ),
-        Row(children: [
-
-                  ]),
-      ]),
-    );
+    return SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(40),
+            ),
+          ),
+          child: Column(
+            children: [Text('Antes e Depois')],
+          ),
+        ));
   }
 }
