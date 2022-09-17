@@ -60,17 +60,17 @@ class DrawerApp extends StatelessWidget {
               Navigator.pushNamed(context, 'revenues');
             },
           ),
-          ListTile(
-            title: const Text(
-              'Hábitos saudáveis',
-              style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
-            ),
-            leading: Icon(Icons.mood_outlined),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushNamed(context, 'healthy-habits');
-            },
-          ),
+          // ListTile(
+          //   title: const Text(
+          //     'Hábitos saudáveis',
+          //     style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
+          //   ),
+          //   leading: Icon(Icons.mood_outlined),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //     Navigator.pushNamed(context, 'healthy-habits');
+          //   },
+          // ),
           ListTile(
             title: const Text(
               'Principais erros',
