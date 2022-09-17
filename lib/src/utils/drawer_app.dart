@@ -60,17 +60,17 @@ class DrawerApp extends StatelessWidget {
               Navigator.pushNamed(context, 'revenues');
             },
           ),
-          ListTile(
-            title: const Text(
-              'Hábitos saudáveis',
-              style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
-            ),
-            leading: Icon(Icons.mood_outlined),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushNamed(context, 'healthy-habits');
-            },
-          ),
+          // ListTile(
+          //   title: const Text(
+          //     'Hábitos saudáveis',
+          //     style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
+          //   ),
+          //   leading: Icon(Icons.mood_outlined),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //     Navigator.pushNamed(context, 'healthy-habits');
+          //   },
+          // ),
           ListTile(
             title: const Text(
               'Principais erros',
@@ -82,17 +82,17 @@ class DrawerApp extends StatelessWidget {
               Navigator.pushNamed(context, 'main-errors');
             },
           ),
-          ListTile(
-            title: const Text(
-              'Antes e Depois',
-              style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
-            ),
-            leading: Icon(Icons.camera_alt_rounded),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushNamed(context, 'before-and-after');
-            },
-          ),
+          // ListTile(
+          //   title: const Text(
+          //     'Antes e Depois',
+          //     style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
+          //   ),
+          //   leading: Icon(Icons.camera_alt_rounded),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //     Navigator.pushNamed(context, 'before-and-after');
+          //   },
+          // ),
           ListTile(
             title: const Text(
               'Agende sua Consulta',

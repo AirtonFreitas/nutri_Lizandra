@@ -47,16 +47,16 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                     width: 12,
                   ),
                   _bannerHome(
-                      'Hábitos \nSaudáveis',
-                      Icon(Icons.check, size: 40, color: ColorsUtils.blue),
-                      () => Navigator.pushNamed(context, 'healthy-habits')),
+                      'Dicas \nNutricionais',
+                      Icon(Icons.tips_and_updates_outlined, size: 40, color: ColorsUtils.yellow),
+                      () => Navigator.pushNamed(context, 'tips')),
                   const SizedBox(
                     width: 12,
                   ),
                   _bannerHome(
-                      'Conheça a Nutri',
-                      Icon(Icons.face, size: 40, color: ColorsUtils.green),
-                      () => Navigator.pushNamed(context, 'profile_nutri')),
+                      'Receitas',
+                      Icon(Icons.fastfood, size: 40, color: ColorsUtils.green),
+                      () => Navigator.pushNamed(context, 'revenues')),
                 ],
               ),
               const SizedBox(
