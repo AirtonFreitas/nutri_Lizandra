@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../navigation/navigation_bottom_widget.dart';
+import '../../src/utils/colors_utils.dart';
 import 'components/app_bar.dart';
-import '../../src/utils/drawer_app.dart';
 import 'components/body_main_errors_widget.dart';
-
 
 class MainErrosScreen extends StatefulWidget {
   const MainErrosScreen({Key? key}) : super(key: key);
@@ -16,14 +14,14 @@ class _MainErrosScreenState extends State<MainErrosScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      backgroundColor: ColorsUtils.greenPrimary,
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(65),
-        child: AppBarHomeWidget(
-          imageBar: 'pera',
+        child: AppBarMainErrorWidget(
           title: 'Principais erros',
         ),
       ),
-      body: BodyErrosMainWidget(),
+      body: const BodyErrosMainWidget(),
     );
   }
 }
