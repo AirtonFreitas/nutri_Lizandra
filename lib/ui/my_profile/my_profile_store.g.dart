@@ -154,13 +154,13 @@ mixin _$MyProfileStore on _MyProfileStore, Store {
       Atom(name: '_MyProfileStore.sliderAtividade', context: context);
 
   @override
-  int get sliderAtividade {
+  int? get sliderAtividade {
     _$sliderAtividadeAtom.reportRead();
     return super.sliderAtividade;
   }
 
   @override
-  set sliderAtividade(int value) {
+  set sliderAtividade(int? value) {
     _$sliderAtividadeAtom.reportWrite(value, super.sliderAtividade, () {
       super.sliderAtividade = value;
     });
@@ -188,6 +188,71 @@ mixin _$MyProfileStore on _MyProfileStore, Store {
   @override
   Future<void> checkRegistery() {
     return _$checkRegisteryAsyncAction.run(() => super.checkRegistery());
+  }
+
+  late final _$setNameAsyncAction =
+      AsyncAction('_MyProfileStore.setName', context: context);
+
+  @override
+  Future<void> setName(String nomeRecebido) {
+    return _$setNameAsyncAction.run(() => super.setName(nomeRecebido));
+  }
+
+  late final _$setAtividadeAsyncAction =
+      AsyncAction('_MyProfileStore.setAtividade', context: context);
+
+  @override
+  Future<void> setAtividade(int atividade) {
+    return _$setAtividadeAsyncAction.run(() => super.setAtividade(atividade));
+  }
+
+  late final _$setAgeAsyncAction =
+      AsyncAction('_MyProfileStore.setAge', context: context);
+
+  @override
+  Future<void> setAge(String idadeRecebida) {
+    return _$setAgeAsyncAction.run(() => super.setAge(idadeRecebida));
+  }
+
+  late final _$setWeightAsyncAction =
+      AsyncAction('_MyProfileStore.setWeight', context: context);
+
+  @override
+  Future<void> setWeight(String pesoRecebido) {
+    return _$setWeightAsyncAction.run(() => super.setWeight(pesoRecebido));
+  }
+
+  late final _$setHeightAsyncAction =
+      AsyncAction('_MyProfileStore.setHeight', context: context);
+
+  @override
+  Future<void> setHeight(String alturaRecebida) {
+    return _$setHeightAsyncAction.run(() => super.setHeight(alturaRecebida));
+  }
+
+  late final _$setGenreAsyncAction =
+      AsyncAction('_MyProfileStore.setGenre', context: context);
+
+  @override
+  Future<void> setGenre(String generoRecebido) {
+    return _$setGenreAsyncAction.run(() => super.setGenre(generoRecebido));
+  }
+
+  late final _$setObjectiveAsyncAction =
+      AsyncAction('_MyProfileStore.setObjective', context: context);
+
+  @override
+  Future<void> setObjective(String objetivoRecebido) {
+    return _$setObjectiveAsyncAction
+        .run(() => super.setObjective(objetivoRecebido));
+  }
+
+  late final _$saveLocalAsyncAction =
+      AsyncAction('_MyProfileStore.saveLocal', context: context);
+
+  @override
+  Future<void> saveLocal() {
+    return _$saveLocalAsyncAction.run(() => super.saveLocal());
   }
 
   @override

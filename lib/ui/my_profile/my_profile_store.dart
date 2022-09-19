@@ -37,7 +37,7 @@ abstract class _MyProfileStore with Store {
   int pageActive = 0;
 
   @observable
-  int sliderAtividade = 0;
+  int? sliderAtividade;
 
   @observable
   bool loading = true;
@@ -69,4 +69,53 @@ abstract class _MyProfileStore with Store {
     imc =  peso / altura / altura;
     Timer(const Duration(milliseconds: 300), () { loading = false; });
   }
+
+  @action
+  Future<void> setName(String nomeRecebido) async {
+    name = nomeRecebido;
+  }
+
+  @action
+  Future<void> setAtividade(int atividade) async {
+    sliderAtividade = atividade;
+  }
+
+  @action
+  Future<void> setAge(String idadeRecebida) async {
+    age = idadeRecebida;
+  }
+
+  @action
+  Future<void> setWeight(String pesoRecebido) async {
+    weight = pesoRecebido;
+  }
+
+  @action
+  Future<void> setHeight(String alturaRecebida) async {
+    height = alturaRecebida;
+  }
+
+  @action
+  Future<void> setGenre(String generoRecebido) async {
+    genre = generoRecebido;
+  }
+
+  @action
+  Future<void> setObjective(String objetivoRecebido) async {
+    nutritionalGoal = objetivoRecebido;
+  }
+
+  @action
+  Future<void> saveLocal() async {
+    LocalStorageShared storage = LocalStorageShared();
+    await storage.put('registred', true);
+    storage.put('name', name);
+    storage.put('age', age);
+    storage.put('weight', weight);
+    storage.put('height', height);
+    storage.put('genre', genre);
+    storage.put('nutritionalGoal', nutritionalGoal);
+    storage.put('sliderAtividade', sliderAtividade);
+  }
+
 }

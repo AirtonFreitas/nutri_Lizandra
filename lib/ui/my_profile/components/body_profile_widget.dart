@@ -30,19 +30,23 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
                   'Meu perfil',
                   style: TextStyle(fontSize: 28, fontFamily: 'GeosansLight'),
                 ),
-                Row(children: [
+                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                   Image.asset(
                     'assets/${profileStore.genre}.png',
                     width: 128,
                   ),
                   Observer(builder: (BuildContext context) {
                     return Text(
-                      '${profileStore.name}',
+                      '${profileStore.name?.split(' ').first}',
+                      overflow: TextOverflow.clip,
                       style: const TextStyle(
-                          fontFamily: 'GeosansLight', fontSize: 22),
+                          fontFamily: 'GeosansLight', fontSize: 32),
                     );
                   }),
                 ]),
+                const SizedBox(
+                  height: 12,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -113,19 +117,21 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, 'registration-name');
+                    Navigator.pushNamed(context, 'edit-profile');
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
                       Text(
                         'editar perfil',
-                        style: TextStyle(fontFamily: 'GeosansLight'),
+                        style: TextStyle(
+                            fontFamily: 'GeosansLight',
+                            color: Colors.lightBlue),
                       ),
                       SizedBox(
                         width: 8,
                       ),
-                      Icon(Icons.edit, size: 14),
+                      Icon(Icons.edit, size: 14, color: Colors.lightBlue),
                     ],
                   ),
                 ),
@@ -150,6 +156,39 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
                         ]),
                   );
                 }),
+                InkWell(
+                  onTap: () => showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('O que é IMC?',style: TextStyle(fontFamily: 'GeosansLight',fontWeight: FontWeight.bold)),
+                      content: const Text(
+                          'IMC é um cálculo simples que permite medir se alguém está ou não com o peso ideal. Ele aponta se o peso está adequado ou se está abaixo ou acima do peso.',
+                          style: TextStyle(fontFamily: 'GeosansLight')),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'o que é IMC',
+                        style: TextStyle(
+                            fontFamily: 'GeosansLight',
+                            color: Colors.lightBlue),
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Icon(Icons.question_mark_rounded,
+                          size: 14, color: Colors.lightBlue),
+                    ],
+                  ),
+                ),
                 const SizedBox(height: 18),
                 Observer(builder: (BuildContext context) {
                   return profileStore.imc! < 18.5

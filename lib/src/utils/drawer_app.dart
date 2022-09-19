@@ -11,14 +11,14 @@ class DrawerApp extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration:
-                BoxDecoration(color: Color.fromARGB(255, 134, 187, 125)),
+                const BoxDecoration(color: Color.fromARGB(255, 134, 187, 125)),
             child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+                  children: const [
                     CircleAvatar(
                       radius: 40,
                       backgroundImage: AssetImage('assets/logo_fb.png'),
@@ -43,7 +43,7 @@ class DrawerApp extends StatelessWidget {
               'Dicas Nutricionais',
               style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
             ),
-            leading: Icon(Icons.light_mode_outlined),
+            leading: const Icon(Icons.light_mode_outlined),
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, 'tips');
@@ -54,7 +54,7 @@ class DrawerApp extends StatelessWidget {
               'Receitas Fit',
               style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
             ),
-            leading: Icon(Icons.receipt_long_outlined),
+            leading: const Icon(Icons.receipt_long_outlined),
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, 'revenues');
@@ -76,7 +76,7 @@ class DrawerApp extends StatelessWidget {
               'Principais erros',
               style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
             ),
-            leading: Icon(Icons.mood_bad),
+            leading: const Icon(Icons.mood_bad),
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, 'main-errors');
@@ -98,7 +98,7 @@ class DrawerApp extends StatelessWidget {
               'Agende sua Consulta',
               style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
             ),
-            leading: Icon(Icons.calendar_month_outlined),
+            leading: const Icon(Icons.calendar_month_outlined),
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, 'shedule-consultation');
@@ -109,7 +109,7 @@ class DrawerApp extends StatelessWidget {
               'Conhecendo a Nutri',
               style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
             ),
-            leading: Icon(Icons.ad_units_outlined),
+            leading: const Icon(Icons.person),
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, 'profile_nutri');

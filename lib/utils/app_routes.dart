@@ -5,6 +5,7 @@ import '../ui/chat/chat_page.dart';
 import '../ui/food_plan/food_plan_page.dart';
 import '../ui/healthy_habits/healthy_habits_page.dart';
 import '../ui/main_errors/main_errors_page.dart';
+import '../ui/my_profile/edit_my_profile_page.dart';
 import '../ui/my_profile/my_profile_page.dart';
 import '../ui/navigation/navigation_page.dart';
 import '../ui/profile_nutri/profile_nutri_page.dart';
@@ -18,29 +19,31 @@ class RouteGenerator {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case 'home':
-        return MaterialPageRoute(builder: (_) => NavigationPage());
+        return MaterialPageRoute(builder: (_) => const NavigationPage());
       case 'before-and-after':
-        return MaterialPageRoute(builder: (_) => BeforeAndAfterScreen());
+        return MaterialPageRoute(builder: (_) => const BeforeAndAfterScreen());
       case 'chat':
-        return MaterialPageRoute(builder: (_) => ChatScreen());
+        return MaterialPageRoute(builder: (_) => const ChatScreen());
       case 'food-plan':
-        return MaterialPageRoute(builder: (_) => FoodPlanScreen());
+        return MaterialPageRoute(builder: (_) => const FoodPlanScreen());
       case 'healthy-habits':
-        return MaterialPageRoute(builder: (_) => HealthyScreen());
+        return MaterialPageRoute(builder: (_) => const HealthyScreen());
       case 'main-errors':
-        return MaterialPageRoute(builder: (_) => MainErrosScreen());
+        return MaterialPageRoute(builder: (_) => const MainErrosScreen());
       case 'profile':
-        return MaterialPageRoute(builder: (_) => ProfileScreen());
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+        case 'edit-profile':
+        return MaterialPageRoute(builder: (_) => const EditProfile());
       case 'revenues':
-        return MaterialPageRoute(builder: (_) => RevenueDetails());
+        return MaterialPageRoute(builder: (_) => const RevenueDetails());
       case 'shedule-consultation':
-        return MaterialPageRoute(builder: (_) => SheduleConsultationScreen());
+        return MaterialPageRoute(builder: (_) => const SheduleConsultationScreen());
       case 'tips':
-        return MaterialPageRoute(builder: (_) => TipsScreen());
+        return MaterialPageRoute(builder: (_) => const TipsScreen());
       case 'profile_nutri':
-        return MaterialPageRoute(builder: (_) => ProfileNutriScreen());
+        return MaterialPageRoute(builder: (_) => const ProfileNutriScreen());
       case 'registration-name':
-        return MaterialPageRoute(builder: (_) => RegistrationProfile());
+        return MaterialPageRoute(builder: (_) => const RegistrationProfile());
       // case 'registration-age': (context){
       //   {
       //     final args = ModalRoute.of(context)?. settings.arguments as Map;

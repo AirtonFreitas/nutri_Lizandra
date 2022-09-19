@@ -20,6 +20,23 @@ class FirebaseData {
         'praticaAtividade': '$perfil',
       }),
     );
+  }static editRegister(String nome, String idade, String peso, String altura,
+      String genero, String objetivoNutricional, String perfil) {
+    final email = 'airton@gmailcom';
+    final _baseUrl = 'https://nutri-lizandra-default-rtdb.firebaseio.com/';
+    String encoded = base64.encode(utf8.encode(email));
+    http.put(
+      Uri.parse('$_baseUrl/$encoded/profile.json'),
+      body: jsonEncode({
+        'name': '$nome',
+        'idade': '$idade',
+        'peso': '$peso',
+        'altura': '$altura',
+        'genero': '$genero',
+        'objetivoNutricional': '$objetivoNutricional',
+        'praticaAtividade': '$perfil',
+      }),
+    );
   }
 
   static enviaMgs() {

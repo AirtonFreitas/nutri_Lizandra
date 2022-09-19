@@ -33,18 +33,63 @@ class _BodyProfileNutriWidgetState extends State<BodyProfileNutriWidget> {
                   const SizedBox(
                     height: 18,
                   ),
+                  _perfilNutri(),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  const Text(
+                      'Meu nome é Lizandra, sou nutricionista há 9 anos, formada pela PUC-MG e pós graduanda em nutrição clínica e hospitalar.\n'
+                      'Sou casada e tenho um lindo filho de 1 aninho chamado Lucas.\n'
+                      'Sou apaixonada por alimentação desde que eu era adolescente e isso me motivou a entrar para a faculdade e me tornar uma nutricionista.\n'
+                      'Ajudar pessoas através da alimentação sempre foi um grande sonho e eu quero ajudar você a mudar sua alimentação de forma leve e tranquila!\n'
+                      '🍍Com carinho,\n'
+                      'Lizandra Luth.\n'
+                      'Apaixonada por alimentação.\n',
+                      style: TextStyle(
+                        fontFamily: 'GeosansLight',
+                      )),
                   _redesSociais()
                 ]))));
+  }
+
+  Widget _perfilNutri() {
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+      Column(
+        children: const [
+          Text.rich(
+            TextSpan(
+                text: 'Lizandra Luth\n',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontFamily: 'GeosansLight',
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: 'Nutricionista',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'GeosansLight',
+                      )),
+                ]),
+          ),
+        ],
+      ),
+      Image.asset(
+        'assets/foto_nutri_lizandra.png',
+        width: MediaQuery.of(context).size.width / 3,
+      ),
+    ]);
   }
 
   Widget _redesSociais() {
     return Column(children: [
       const Text(
-        'Siga pra me conhecer melhor',
+        'Siga para me conhecer melhor',
         style: TextStyle(fontSize: 16, fontFamily: 'GeosansLight'),
         textAlign: TextAlign.start,
       ),
-      SizedBox(
+      const SizedBox(
         height: 8,
       ),
       Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
