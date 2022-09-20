@@ -39,7 +39,6 @@ class _NavigationPage extends State<NavigationPage> {
                     Scaffold.of(context).openDrawer();
                   },
                 ),
-                //AppBarNavigationWidget(title: 'pera', imageBar: 'Realiza Nutri'),
               ],
             );
           },

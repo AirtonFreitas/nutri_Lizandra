@@ -18,8 +18,6 @@ class _EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     profileStore.checkRegistery();
-
-
     return Scaffold(
         backgroundColor: ColorsUtils.greenPrimary,
         appBar: const PreferredSize(
@@ -38,46 +36,80 @@ class _EditProfileState extends State<EditProfile> {
           ),
           child: Padding(
             padding: const EdgeInsets.all(12),
-            child: Column(children: [_test(),
-              TextButton(
-                onPressed: () {
-                  FirebaseData.editRegister(
-                    '${profileStore.name}',
-                    '${profileStore.age}',
-                    '${profileStore.weight}',
-                    '${profileStore.height}',
-                    '${profileStore.genre}',
-                    '${profileStore.nutritionalGoal}',
-                    '${profileStore.sliderAtividade}',
-                  );
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
-                child: const Text('Gravar'),
-              )
-            ],),
+            child: Column(
+              children: [
+                _editProfile(),
+                const SizedBox(
+                  height: 12,
+                ),
+                TextButton(
+                  onPressed: () {
+                    FirebaseData.editRegister(
+                      '${profileStore.name}',
+                      '${profileStore.age}',
+                      '${profileStore.weight}',
+                      '${profileStore.height}',
+                      '${profileStore.genre}',
+                      '${profileStore.nutritionalGoal}',
+                      '${profileStore.sliderAtividade}',
+                    );
+                    profileStore.saveLocal();
+                    FocusManager.instance.primaryFocus?.unfocus();
+                    Navigator.pushNamed(context, 'home');
+                  },
+                  child: const Text('Gravar'),
+                )
+              ],
+            ),
           ),
         ));
   }
 
-  _test() {
+  Widget _editProfile() {
     return Column(children: [
       const Text(
         'Editar perfil',
         style: TextStyle(fontSize: 28, fontFamily: 'GeosansLight'),
       ),
-      Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Image.asset(
-          'assets/${profileStore.genre}.png',
-          width: 128,
-        ),
-        Observer(builder: (BuildContext context) {
-          return Text(
-            '${profileStore.name?.split(' ').first}',
-            overflow: TextOverflow.clip,
-            style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 32),
-          );
-        }),
-      ]),
+      const SizedBox(height: 12,),
+      Observer(builder: (BuildContext context) {
+        return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+          Stack(
+            children: [
+              Image.asset(
+                'assets/${profileStore.genre}.png',
+                width: 100,
+              ),
+              Positioned(right:1, top: -15,
+                child: IconButton(
+                    onPressed: () {
+                      _editGen();
+                    },
+                    icon: const Icon(
+                      Icons.edit,
+                      size: 18,
+                    )),
+              ),
+            ],
+          ),
+          Observer(builder: (BuildContext context) {
+            return Text(
+              '${profileStore.name}',
+              overflow: TextOverflow.clip,
+              style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
+            );
+          }),
+          IconButton(
+              onPressed: () {
+                _editName();
+              },
+              icon: const Icon(
+                Icons.edit,
+                size: 18,
+              )),
+        ]);
+      }),
       const SizedBox(
         height: 12,
       ),
@@ -104,62 +136,126 @@ class _EditProfileState extends State<EditProfile> {
               ),
               IconButton(
                   onPressed: () {
-                    editAge();
+                    _editAge();
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.edit,
                     size: 18,
                   )),
             ],
           ),
-          Observer(builder: (BuildContext context) {
-            return Text.rich(TextSpan(
-                text: 'Peso: ',
-                style:
-                    const TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: '${profileStore.weight}',
-                      style: const TextStyle(
-                          fontSize: 22, fontFamily: 'GeosansLight')),
-                ]));
-          }),
-          Observer(builder: (BuildContext context) {
-            return Text.rich(TextSpan(
-                text: 'Altura: ',
-                style:
-                    const TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: '${profileStore.height}',
-                      style: const TextStyle(
-                          fontSize: 22, fontFamily: 'GeosansLight')),
-                ]));
-          }),
-          Observer(builder: (BuildContext context) {
-            return Text.rich(TextSpan(
-                text: 'Objetivo Nutricional: ',
-                style:
-                    const TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: '${profileStore.nutritionalGoal}',
-                      style: const TextStyle(
-                          fontSize: 22, fontFamily: 'GeosansLight')),
-                ]));
-          }),
-          Observer(builder: (BuildContext context) {
-            return Text.rich(TextSpan(
-                text: 'Nível de Atividades Físicas: ',
-                style:
-                    const TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: '${profileStore.sliderAtividade}',
-                      style: const TextStyle(
-                          fontSize: 22, fontFamily: 'GeosansLight')),
-                ]));
-          }),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Observer(builder: (BuildContext context) {
+                return Text.rich(TextSpan(
+                    text: 'Peso: ',
+                    style: const TextStyle(
+                        fontFamily: 'GeosansLight', fontSize: 18),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: '${profileStore.weight}',
+                          style: const TextStyle(
+                              fontSize: 22, fontFamily: 'GeosansLight')),
+                    ]));
+              }),
+              const SizedBox(
+                width: 12,
+              ),
+              IconButton(
+                  onPressed: () {
+                    _editWeight();
+                  },
+                  icon: const Icon(
+                    Icons.edit,
+                    size: 18,
+                  )),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Observer(builder: (BuildContext context) {
+                return Text.rich(TextSpan(
+                    text: 'Altura: ',
+                    style: const TextStyle(
+                        fontFamily: 'GeosansLight', fontSize: 18),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: '${profileStore.height}',
+                          style: const TextStyle(
+                              fontSize: 22, fontFamily: 'GeosansLight')),
+                    ]));
+              }),
+              const SizedBox(
+                width: 12,
+              ),
+              IconButton(
+                  onPressed: () {
+                    _editHeight();
+                  },
+                  icon: const Icon(
+                    Icons.edit,
+                    size: 18,
+                  )),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Observer(builder: (BuildContext context) {
+                return Text.rich(TextSpan(
+                    text: 'Objetivo Nutricional: ',
+                    style: const TextStyle(
+                        fontFamily: 'GeosansLight', fontSize: 18),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: '${profileStore.nutritionalGoal}',
+                          style: const TextStyle(
+                              fontSize: 22, fontFamily: 'GeosansLight')),
+                    ]));
+              }),
+              const SizedBox(
+                width: 12,
+              ),
+              IconButton(
+                  onPressed: () {
+                    _editNutritionalGoal();
+                  },
+                  icon: const Icon(
+                    Icons.edit,
+                    size: 18,
+                  )),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Observer(builder: (BuildContext context) {
+                return Text.rich(TextSpan(
+                    text: 'Nível de Atividades Físicas: ',
+                    style: const TextStyle(
+                        fontFamily: 'GeosansLight', fontSize: 18),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: '${profileStore.sliderAtividade}',
+                          style: const TextStyle(
+                              fontSize: 22, fontFamily: 'GeosansLight')),
+                    ]));
+              }),
+              const SizedBox(
+                width: 12,
+              ),
+              IconButton(
+                  onPressed: () {
+                    _editAtividade();
+                  },
+                  icon: const Icon(
+                    Icons.edit,
+                    size: 18,
+                  )),
+            ],
+          ),
         ],
       ),
       const SizedBox(
@@ -168,175 +264,69 @@ class _EditProfileState extends State<EditProfile> {
     ]);
   }
 
-  _bodyEditProfile() {
-    return Column(children: [
-      const SizedBox(
-        height: 18,
-      ),
-      Row(
-        children: const [
-          SizedBox(
-            width: 18,
-          ),
-          Text(
-            'Nome',
+  _editName() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Nome',
             style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'GeosansLight',
-                fontWeight: FontWeight.bold),
+                fontFamily: 'GeosansLight', fontWeight: FontWeight.bold)),
+        content: TextField(
+          onChanged: (text) {
+            profileStore.setName(text);
+          },
+          decoration: InputDecoration(
+              hintText: '${profileStore.name}',
+              hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
+          controller: TextEditingController(),
+          keyboardType: TextInputType.name,
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              profileStore.saveLocal();
+              Navigator.pop(context, 'OK');
+            },
+            child: const Text('OK'),
           ),
         ],
       ),
-      TextField(
-        onSubmitted: (text) {
-          profileStore.setName(text);
-        },
-        decoration: InputDecoration(
-            hintText: '${profileStore.name}',
-            hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
-        controller: TextEditingController(),
-        keyboardType: TextInputType.name,
-      ),
-      const SizedBox(
-        height: 18,
-      ),
-      Row(
-        children: const [
-          SizedBox(
-            width: 18,
-          ),
-          Text(
-            'Idade',
-            style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'GeosansLight',
-                fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-      TextField(
-        onSubmitted: (text) {
-          profileStore.setAge(text);
-        },
-        decoration: InputDecoration(
-            hintText: '${profileStore.age}',
-            hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
-        controller: TextEditingController(),
-        keyboardType: TextInputType.number,
-      ),
-      const SizedBox(
-        height: 18,
-      ),
-      Row(
-        children: const [
-          SizedBox(
-            width: 18,
-          ),
-          Text(
-            'Peso',
-            style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'GeosansLight',
-                fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-      TextField(
-        onSubmitted: (text) {
-          profileStore.setWeight(text);
-        },
-        decoration: InputDecoration(
-            hintText: '${profileStore.weight}',
-            hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
-        controller: TextEditingController(),
-        keyboardType: TextInputType.number,
-      ),
-      const SizedBox(
-        height: 18,
-      ),
-      Row(
-        children: const [
-          SizedBox(
-            width: 18,
-          ),
-          Text(
-            'Altura',
-            style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'GeosansLight',
-                fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-      TextField(
-        onSubmitted: (text) {
-          profileStore.setHeight(text);
-        },
-        decoration: InputDecoration(
-            hintText: '${profileStore.height}',
-            hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
-        controller: TextEditingController(),
-        keyboardType: TextInputType.number,
-      ),
-      const SizedBox(
-        height: 18,
-      ),
-      Row(
-        children: const [
-          SizedBox(
-            width: 18,
-          ),
-          Text(
-            'Objetivo Nutricional',
-            style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'GeosansLight',
-                fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-      TextField(
-        onSubmitted: (text) {
-          profileStore.setObjective(text);
-        },
-        decoration: InputDecoration(
-            hintText: '${profileStore.nutritionalGoal}',
-            hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
-        controller: TextEditingController(),
-        keyboardType: TextInputType.text,
-      ),
-      const SizedBox(
-        height: 18,
-      ),
-      Row(
-        children: const [
-          SizedBox(
-            width: 18,
-          ),
-          Text(
-            'Pratica de Atividade Física (0 à 10)',
-            style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'GeosansLight',
-                fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-      TextField(
-        onSubmitted: (text) {
-          int ativ = int.parse(text);
-          profileStore.setAtividade(ativ);
-        },
-        decoration: InputDecoration(
-            hintText: '${profileStore.sliderAtividade}',
-            hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
-        controller: TextEditingController(),
-        keyboardType: TextInputType.number,
-      ),
-    ]);
+    );
   }
 
-  editAge() {
+  _editGen() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Genero',
+            style: TextStyle(
+                fontFamily: 'GeosansLight', fontWeight: FontWeight.bold)),
+        content: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+          InkWell(child: Image.asset('assets/masc.png',width: 100,),onTap: (){
+            profileStore.setGenre('masc');
+            Navigator.pop(context, 'ok');
+          },),
+          InkWell(child: Image.asset('assets/fem.png',width: 100,),onTap: (){
+            profileStore.setGenre('fem');
+            Navigator.pop(context, 'ok');
+    })
+        ],),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              profileStore.setGenre('uni');
+              profileStore.saveLocal();
+              Navigator.pop(context, 'ok');
+            },
+            child: const Text('prefiro \n não informar',textAlign: TextAlign.center,),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _editAge() {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
@@ -347,10 +337,133 @@ class _EditProfileState extends State<EditProfile> {
           onChanged: (text) {
             //int age = int.parse(text);
             profileStore.setAge(text);
-            print(text);
           },
           decoration: InputDecoration(
               hintText: '${profileStore.age}',
+              hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
+          controller: TextEditingController(),
+          keyboardType: TextInputType.number,
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              profileStore.saveLocal();
+              Navigator.pop(context, 'OK');
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _editWeight() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Peso',
+            style: TextStyle(
+                fontFamily: 'GeosansLight', fontWeight: FontWeight.bold)),
+        content: TextField(
+          onChanged: (text) {
+            //int age = int.parse(text);
+            profileStore.setWeight(text);
+          },
+          decoration: InputDecoration(
+              hintText: '${profileStore.weight}',
+              hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
+          controller: TextEditingController(),
+          keyboardType: TextInputType.number,
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              profileStore.saveLocal();
+              Navigator.pop(context, 'OK');
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _editHeight() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Altura',
+            style: TextStyle(
+                fontFamily: 'GeosansLight', fontWeight: FontWeight.bold)),
+        content: TextField(
+          onChanged: (text) {
+            //int age = int.parse(text);
+            profileStore.setHeight(text);
+          },
+          decoration: InputDecoration(
+              hintText: '${profileStore.height}',
+              hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
+          controller: TextEditingController(),
+          keyboardType: TextInputType.number,
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              profileStore.saveLocal();
+              Navigator.pop(context, 'OK');
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _editNutritionalGoal() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Objetivo Nutricional',
+            style: TextStyle(
+                fontFamily: 'GeosansLight', fontWeight: FontWeight.bold)),
+        content: TextField(
+          onChanged: (text) {
+            //int age = int.parse(text);
+            profileStore.setObjective(text);
+          },
+          decoration: InputDecoration(
+              hintText: '${profileStore.nutritionalGoal}',
+              hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
+          controller: TextEditingController(),
+          keyboardType: TextInputType.text,
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              profileStore.saveLocal();
+              Navigator.pop(context, 'OK');
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _editAtividade() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Nível de Atividades Físicas (0 à 10)',
+            style: TextStyle(
+                fontFamily: 'GeosansLight', fontWeight: FontWeight.bold)),
+        content: TextField(
+          onChanged: (text) {
+            int ativ = int.parse(text);
+            profileStore.setAtividade(ativ);
+          },
+          decoration: InputDecoration(
+              hintText: '${profileStore.sliderAtividade}',
               hintStyle: const TextStyle(fontFamily: 'GeosansLight')),
           controller: TextEditingController(),
           keyboardType: TextInputType.number,

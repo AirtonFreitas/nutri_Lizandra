@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.realiza_nutri">
    <application
-        android:label="realiza_nutri"
+        android:label="Saúde nas mãos"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
