@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:realiza_nutri/src/utils/colors_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -148,6 +149,7 @@ class _RevenueDetailsState extends State<RevenueDetails> {
             //_widgetScreenRevenue(),
             _widgetOptions.elementAt(_bodySelected),
             _modoPago(),
+            getBanner(AdmobBannerSize.BANNER),
           ],
         ),
       ),
@@ -157,41 +159,51 @@ class _RevenueDetailsState extends State<RevenueDetails> {
   _modoPago() {
     return Column(
       children: [
-        Container(width: MediaQuery
-            .of(context)
-            .size
-            .width,
+        Container(
+          width: MediaQuery.of(context).size.width,
           height: 1,
-          color: ColorsUtils.gray,),
+          color: ColorsUtils.gray,
+        ),
         const SizedBox(
           height: 28,
         ),
-        const Text('Tenha acesso ao modo completo',
-          style: TextStyle(fontSize: 22, fontFamily: 'GeosansLight'),),
+        const Text(
+          'Tenha acesso ao modo completo',
+          style: TextStyle(fontSize: 22, fontFamily: 'GeosansLight'),
+        ),
         const SizedBox(
           height: 12,
         ),
-        Row(mainAxisAlignment: MainAxisAlignment.center,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Chat direto com a nutri',
-              style: TextStyle(fontSize: 12, fontFamily: 'GeosansLight'),),
+            const Text(
+              'Chat direto com a nutri',
+              style: TextStyle(fontSize: 12, fontFamily: 'GeosansLight'),
+            ),
             const SizedBox(
               width: 12,
             ),
             Stack(
               children: [
-                InkWell(onTap: _chamaZap,
+                InkWell(
+                  onTap: _chamaZap,
                   child: const CircleAvatar(
                     radius: 40,
                     backgroundImage: AssetImage('assets/foto_nutri.png'),
                   ),
                 ),
-                Positioned(bottom: 0, right: 0,
-                  child: InkWell(onTap: _chamaZap,
-                    child: const CircleAvatar(radius: 15,
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: InkWell(
+                    onTap: _chamaZap,
+                    child: const CircleAvatar(
+                      radius: 15,
                       backgroundImage: AssetImage('assets/icon_zap.png'),
                     ),
-                  ),)
+                  ),
+                )
               ],
             ),
           ],
@@ -224,15 +236,21 @@ class _RevenueDetailsState extends State<RevenueDetails> {
           height: 12,
         ),
       ],
-
     );
   }
 
   Future<void> _chamaZap() async {
-    final Uri _url = Uri.parse('https://api.whatsapp.com/send?phone=5531987065718&text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20completo%20do%20app%20nutricional.');
+    final Uri _url = Uri.parse(
+        'https://api.whatsapp.com/send?phone=5531987065718&text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20completo%20do%20app%20nutricional.');
     if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $_url';
     }
   }
 
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/4919104120',
+      adSize: size,
+    );
+  }
 }

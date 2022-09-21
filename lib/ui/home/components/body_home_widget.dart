@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -16,6 +17,17 @@ class BodyHomeWidget extends StatefulWidget {
 }
 
 class _BodyHomeWidgetState extends State<BodyHomeWidget> {
+  late AdmobInterstitial interstitialAd;
+
+  @override
+  void initState() {
+    super.initState();
+    interstitialAd = AdmobInterstitial(
+      adUnitId: 'ca-app-pub-3721429763641925/4231395337',
+    );
+    interstitialAd.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     homeStore.checkRegistery();
@@ -48,7 +60,8 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                   ),
                   _bannerHome(
                       'Dicas \nNutricionais',
-                      Icon(Icons.tips_and_updates_outlined, size: 40, color: ColorsUtils.yellow),
+                      Icon(Icons.tips_and_updates_outlined,
+                          size: 40, color: ColorsUtils.yellow),
                       () => Navigator.pushNamed(context, 'tips')),
                   const SizedBox(
                     width: 12,
@@ -70,31 +83,36 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
               const SizedBox(
                 height: 18,
               ),
-              CarouselSlider(items: [
-                _caruoselBanner(
-                  'Efeito',
-                  'sanfona',
-                  Image.asset('assets/accordion.png',
-                      width: 40, color: ColorsUtils.orange),
-                ),
-                _caruoselBanner(
-                  'Retenção de',
-                  'líquidos',
-                  Icon(Icons.water_drop_outlined,
-                      size: 32, color: ColorsUtils.blue),
-                ),
-                _caruoselBanner(
-                  'Abandonei a',
-                  'meta',
-                  Icon(Icons.auto_graph_outlined,
-                      size: 32, color: ColorsUtils.green),
-                ),
-              ], options: CarouselOptions(autoPlay: true,height: 94,
-              )),
+              getBanner(AdmobBannerSize.BANNER),
+              CarouselSlider(
+                  items: [
+                    _caruoselBanner(
+                      'Efeito',
+                      'sanfona',
+                      Image.asset('assets/accordion.png',
+                          width: 40, color: ColorsUtils.orange),
+                    ),
+                    _caruoselBanner(
+                      'Retenção de',
+                      'líquidos',
+                      Icon(Icons.water_drop_outlined,
+                          size: 32, color: ColorsUtils.blue),
+                    ),
+                    _caruoselBanner(
+                      'Abandonei a',
+                      'meta',
+                      Icon(Icons.auto_graph_outlined,
+                          size: 32, color: ColorsUtils.green),
+                    ),
+                  ],
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    height: 94,
+                  )),
               _modoPago(),
+              getBanner(AdmobBannerSize.BANNER),
             ],
           )),
-
     );
   }
 
@@ -180,21 +198,21 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
             const SizedBox(
               height: 12,
             ),
-            const Text('Vamos parar de uma vez com',style: TextStyle(
+            const Text(
+              'Vamos parar de uma vez com',
+              style: TextStyle(
                 fontFamily: 'GeosansLight',
                 fontSize: 20,
-                ),),
+              ),
+            ),
             const SizedBox(
               height: 12,
             ),
             ItemsPakageCompleted(
                 check: false, nameItem: 'Não consigo seguir o plano alimentar'),
-            ItemsPakageCompleted(
-                check: false, nameItem: 'Comi de nervoso'),
-            ItemsPakageCompleted(
-                check: false, nameItem: 'Vou fazer jejum'),
-            ItemsPakageCompleted(
-                check: false, nameItem: 'Efeito sanfona'),
+            ItemsPakageCompleted(check: false, nameItem: 'Comi de nervoso'),
+            ItemsPakageCompleted(check: false, nameItem: 'Vou fazer jejum'),
+            ItemsPakageCompleted(check: false, nameItem: 'Efeito sanfona'),
           ],
         ),
         const SizedBox(
@@ -219,13 +237,20 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
       throw 'Could not launch $url';
     }
   }
-  Widget _nutricaoComportamental(){
-    return Column(children: const [
-Text('Apesar da grande quantidade de informações sobre alimentos e dietas, as pessoas continuam enxergando a comida como grande inimiga. A nutrição comportamental tem como objetivo mudar essa relação, fazendo com que as pessoas sintam prazer (e não culpa) ao comer.',
-style:
-        TextStyle(fontSize: 18, fontFamily: 'GeosansLight')
-),
-    ],);
+
+  Widget _nutricaoComportamental() {
+    return InkWell(
+      onTap: () {
+        showInterstitial();
+      },
+      child: Column(
+        children: const [
+          Text(
+              'Apesar da grande quantidade de informações sobre alimentos e dietas, as pessoas continuam enxergando a comida como grande inimiga. A nutrição comportamental tem como objetivo mudar essa relação, fazendo com que as pessoas sintam prazer (e não culpa) ao comer.',
+              style: TextStyle(fontSize: 18, fontFamily: 'GeosansLight')),
+        ],
+      ),
+    );
   }
 
   Widget _firstBanner() {
@@ -255,7 +280,6 @@ style:
               ),
               Icon(Icons.question_mark_rounded,
                   size: 32, color: ColorsUtils.green),
-
             ],
           ),
         ));
@@ -323,5 +347,16 @@ style:
             ),
           ),
         ));
+  }
+
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/6191027033',
+      adSize: size,
+    );
+  }
+
+  void showInterstitial() {
+    interstitialAd.show();
   }
 }

@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 
 class BodyTipsWidget extends StatefulWidget {
@@ -21,7 +22,7 @@ class _BodyTipsWidgetState extends State<BodyTipsWidget> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 18,horizontal: 12 ),
+              padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
               child: Column(
                 children: [
                   const Text(
@@ -32,8 +33,16 @@ class _BodyTipsWidgetState extends State<BodyTipsWidget> {
                     height: 18,
                   ),
                   Image.asset('assets/dicas.png'),
+                  getBanner(AdmobBannerSize.BANNER),
                 ],
               ),
             )));
+  }
+
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/5050169904',
+      adSize: size,
+    );
   }
 }

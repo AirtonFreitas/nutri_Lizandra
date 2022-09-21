@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -142,6 +143,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
                 const SizedBox(
                   height: 28,
                 ),
+                getBanner(AdmobBannerSize.BANNER),
                 Observer(builder: (BuildContext context) {
                   return Text.rich(
                     TextSpan(
@@ -160,7 +162,10 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
                   onTap: () => showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
-                      title: const Text('O que é IMC?',style: TextStyle(fontFamily: 'GeosansLight',fontWeight: FontWeight.bold)),
+                      title: const Text('O que é IMC?',
+                          style: TextStyle(
+                              fontFamily: 'GeosansLight',
+                              fontWeight: FontWeight.bold)),
                       content: const Text(
                           'IMC é um cálculo simples que permite medir se alguém está ou não com o peso ideal. Ele aponta se o peso está adequado ou se está abaixo ou acima do peso.',
                           style: TextStyle(fontFamily: 'GeosansLight')),
@@ -215,6 +220,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
                       ? _imcObesidadeGrave()
                       : const SizedBox.shrink();
                 }),
+                getBanner(AdmobBannerSize.BANNER),
               ]),
             );
     });
@@ -544,5 +550,12 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $url';
     }
+  }
+
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/1216836297',
+      adSize: size,
+    );
   }
 }
