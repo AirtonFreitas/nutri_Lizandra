@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../navigation/navigation_bottom_widget.dart';
+import 'package:realiza_nutri/src/utils/colors_utils.dart';
+
 import 'components/app_bar.dart';
-import '../../src/utils/drawer_app.dart';
 import 'components/body_shedule_widget.dart';
 
 class SheduleConsultationScreen extends StatefulWidget {
@@ -15,15 +15,14 @@ class SheduleConsultationScreen extends StatefulWidget {
 class _SheduleConsultationScreenState extends State<SheduleConsultationScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
+    return Scaffold(backgroundColor: ColorsUtils.greenPrimary,
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(65),
-        child: AppBarHomeWidget(
-          imageBar: 'pera',
+        child: AppBarSheduleWidget(
           title: 'Agende sua Consulta',
         ),
       ),
-      body: BodySheduleWidget(),
+      body: const BodySheduleWidget(),
     );
   }
 }

@@ -20,7 +20,7 @@ class _FoodPlanScreenState extends State<FoodPlanScreen> {
         top: Radius.circular(40),
       ),
     ),
-      child: BodyPlanWidget(),
+      child: const BodyPlanWidget(),
 
     );
   }

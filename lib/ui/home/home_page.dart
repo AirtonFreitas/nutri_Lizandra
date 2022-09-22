@@ -18,19 +18,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     homeStore.checkRegistery();
 
-    return Container(decoration: const BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.vertical(
-        top: Radius.circular(40),
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(40),
+        ),
       ),
-    ),
       child: Observer(builder: (BuildContext context) {
         return homeStore.registred
             ? const BodyHomeWidget()
             : const BodyHomeRegisteryWidget();
       }),
-
-
     );
   }
 }

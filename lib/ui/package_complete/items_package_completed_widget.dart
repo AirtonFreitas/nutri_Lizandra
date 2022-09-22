@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:realiza_nutri/src/utils/colors_utils.dart';
 
 class ItemsPakageCompleted extends StatelessWidget {
   var nameItem;
@@ -9,17 +8,17 @@ class ItemsPakageCompleted extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.all(2),
+    return Padding(padding: const EdgeInsets.all(2),
     //color: ColorsUtils.greenNav,
         child: Row(mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Icon(
           check ? Icons.check_box : Icons.not_interested,
           color: check ? Colors.green : Colors.red,
         ),
-        SizedBox(width: 8),
-        Text(nameItem, style: TextStyle(fontFamily: 'GeosansLight'),)
+        const SizedBox(width: 8),
+        Text(nameItem, style: const TextStyle(fontFamily: 'GeosansLight'),)
       ],
     ));
 

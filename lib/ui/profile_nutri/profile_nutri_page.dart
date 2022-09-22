@@ -20,7 +20,7 @@ class _ProfileNutriScreenState extends State<ProfileNutriScreen> {
           title: 'Conhecendo a Nutri',
         ),
       ),
-      body: BodyProfileNutriWidget(),
+      body: const BodyProfileNutriWidget(),
     );
   }
 }

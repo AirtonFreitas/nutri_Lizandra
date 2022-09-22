@@ -45,7 +45,7 @@ class _NavigationPage extends State<NavigationPage> {
         ),
       ),
       drawer: const DrawerApp(),
-      body: Center(
+      body: SizedBox(width: MediaQuery.of(context).size.width,
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -308,7 +308,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
     return Column(
       children: [
         const Text.rich(TextSpan(
-            text: 'De acordo com a OMS, seu IMC é cclassificado como ',
+            text: 'De acordo com a OMS, seu IMC é classificado como ',
             style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
             children: <TextSpan>[
               TextSpan(
@@ -392,7 +392,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
     return Column(
       children: [
         const Text.rich(TextSpan(
-            text: 'De acordo com a OMS, seu IMC é cclassificado como ',
+            text: 'De acordo com a OMS, seu IMC é classificado como ',
             style: TextStyle(fontFamily: 'GeosansLight', fontSize: 18),
             children: <TextSpan>[
               TextSpan(
@@ -489,7 +489,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'eu posso te ajudar a alcançar isso',
+              'eu posso te ajudar a alcançar seu \nobjetivo nutricional',textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: 'GeosansLight',
                   fontSize: 20,
