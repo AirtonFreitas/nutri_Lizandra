@@ -1,4 +1,4 @@
-package com.example.realiza_nutri
+package com.airtonsiq.saude_nas_maos
 
 import io.flutter.embedding.android.FlutterActivity
 

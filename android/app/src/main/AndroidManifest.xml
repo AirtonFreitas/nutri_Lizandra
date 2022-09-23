@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.realiza_nutri">
+    package="com.airtonsiq.saude_nas_maos">
    <application
         android:label="Saúde nas mãos"
         android:name="${applicationName}"

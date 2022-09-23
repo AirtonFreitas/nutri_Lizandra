@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         ),
       initialRoute: 'splash',
       onGenerateRoute: RouteGenerator.generateRoute,
-      );
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
