@@ -14,7 +14,7 @@ class BodyPlanWidget extends StatefulWidget {
 class _BodyPlanWidget extends State<BodyPlanWidget> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(child: Padding(padding: EdgeInsets.only(top: 12),
+    return SingleChildScrollView(child: Padding(padding: const EdgeInsets.only(top: 12),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         const Text(
           'Plano Alimentar',

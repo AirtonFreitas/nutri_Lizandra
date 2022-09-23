@@ -25,6 +25,9 @@ abstract class _RegistrationStore with Store {
   String? nutritionalGoal;
 
   @observable
+  String? email;
+
+  @observable
   int pageActive = 0;
 
   @observable
@@ -47,12 +50,13 @@ abstract class _RegistrationStore with Store {
 
   @action
   Future<void> setAtividademin() async {
-    sliderAtividade--;
+    if (sliderAtividade > 0) {sliderAtividade--;
+    }
   }
 
   @action
   Future<void> setAtividademax() async {
-    sliderAtividade++;
+    if (sliderAtividade < 10) {sliderAtividade++;}
   }
 
   @action
@@ -76,6 +80,11 @@ abstract class _RegistrationStore with Store {
   }
 
   @action
+  Future<void> setEmail(String emasilRecebido) async {
+    email = emasilRecebido;
+  }
+
+  @action
   Future<void> setObjective(String objetivoRecebido) async {
     nutritionalGoal = objetivoRecebido;
   }
@@ -91,6 +100,6 @@ abstract class _RegistrationStore with Store {
     storage.put('genre', genre);
     storage.put('nutritionalGoal', nutritionalGoal);
     storage.put('sliderAtividade', sliderAtividade);
+    storage.put('email', email);
   }
-
 }

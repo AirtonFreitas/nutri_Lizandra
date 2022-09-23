@@ -71,7 +71,7 @@ class _BodyChatWidget extends State<BodyChatWidget> {
           children: [
             const Text(
               'Vamos conversar um pouco sobre nutrição?',
-              style: TextStyle(fontFamily: 'GeosansLight'),
+              style: TextStyle(fontFamily: 'GeosansLight',fontSize: 18),
             ),
             InkWell(
                 onTap: _chamaZap,

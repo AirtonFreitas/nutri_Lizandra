@@ -61,14 +61,14 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                   _bannerHome(
                       'Dicas \nNutricionais',
                       Icon(Icons.tips_and_updates_outlined,
-                          size: 40, color: ColorsUtils.yellow),
+                          size: 40, color: ColorsUtils.yellowSecondary),
                       () => Navigator.pushNamed(context, 'tips')),
                   const SizedBox(
                     width: 12,
                   ),
                   _bannerHome(
                       'Receitas',
-                      Icon(Icons.fastfood, size: 40, color: ColorsUtils.green),
+                      Icon(Icons.fastfood, size: 40, color: ColorsUtils.blueSecondary),
                       () => Navigator.pushNamed(context, 'revenues')),
                 ],
               ),
@@ -254,7 +254,7 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
   }
 
   Widget _firstBanner() {
-    return Card(
+    return Card(elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),

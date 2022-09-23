@@ -42,6 +42,7 @@ class _RegistrationProfileState extends State<RegistrationProfile> {
     solicitaAltura(),
     solicitaGen(),
     solicitaObjetivo(),
+    solicitaEmail(),
     solicitaAtividade(),
   ];
 }
@@ -69,13 +70,12 @@ Widget solicitaNome() {
           onChanged: (text) {
             registrationStore.setName(text);
           },
-          // ignore: prefer_const_constructors
-          decoration: InputDecoration(
-            enabledBorder: const OutlineInputBorder(
+          decoration: const InputDecoration(
+            enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(width: 0.2),
               borderRadius: BorderRadius.all(Radius.circular(14)),
             ),
-            focusedBorder: const OutlineInputBorder(
+            focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(width: 0.2),
               borderRadius: BorderRadius.all(Radius.circular(14)),
             ),
@@ -115,6 +115,8 @@ Widget solicitaIdade() {
         controller: TextEditingController(),
         keyboardType: TextInputType.number,
         decoration: const InputDecoration(
+          hintText: 'ex: 23',
+          suffix: Text('anos'),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
@@ -171,6 +173,8 @@ Widget solicitaPeso() {
         },
         controller: TextEditingController(),
         decoration: const InputDecoration(
+          hintText: 'ex: 68,3',
+          suffix: Text('KG'),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
@@ -228,6 +232,8 @@ Widget solicitaAltura() {
         },
         controller: TextEditingController(),
         decoration: const InputDecoration(
+          hintText: 'ex: 1,76',
+          suffix: Text('m'),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 0.2),
             borderRadius: BorderRadius.all(Radius.circular(14)),
@@ -436,6 +442,66 @@ Widget solicitaObjetivo() {
     ],
   );
 }
+
+Widget solicitaEmail() {
+  return Column(
+    children: [
+      Observer(builder: (BuildContext context) {
+        return Text(
+          '${registrationStore.name?.split(' ')[0]}, qual seu email?',
+          style: const TextStyle(fontFamily: 'GeosansLight', fontSize: 22),
+        );
+      }),
+      const SizedBox(
+        height: 18,
+      ),
+      TextField(
+        onChanged: (text) {
+          registrationStore.setEmail(text);
+        },
+        controller: TextEditingController(),
+        decoration: const InputDecoration(
+          hintText: 'ex: seu.email@gmail.com',
+          suffix: Text('@'),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 0.2),
+            borderRadius: BorderRadius.all(Radius.circular(14)),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 0.2),
+            borderRadius: BorderRadius.all(Radius.circular(14)),
+          ),
+        ),
+        keyboardType: TextInputType.emailAddress,
+      ),
+      const SizedBox(
+        height: 12,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextButton(
+            onPressed: () {
+              registrationStore.backPage();
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: const Text('voltar'),
+          ),
+          TextButton(
+            onPressed: () {
+              registrationStore.email == null
+                  ? _toast('Favor preencher seu e-mail')
+                  : registrationStore.nextPage();
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: const Text('avançar'),
+          )
+        ],
+      ),
+    ],
+  );
+}
+
 class solicitaAtividade extends StatelessWidget {
   const solicitaAtividade({Key? key}) : super(key: key);
 
@@ -467,8 +533,8 @@ class solicitaAtividade extends StatelessWidget {
               return Center(
                 child: Text(
                   '${registrationStore.sliderAtividade}',
-                  style:
-                  TextStyle(fontSize: 62, color: ColorsUtils.greenSecondary),
+                  style: TextStyle(
+                      fontSize: 64, color: ColorsUtils.greenSecondary),
                 ),
               );
             }),
@@ -482,6 +548,81 @@ class solicitaAtividade extends StatelessWidget {
                 )),
           ],
         ),
+        Observer(builder: (BuildContext context) {
+          return registrationStore.sliderAtividade >= 0 &&
+                  registrationStore.sliderAtividade <= 2
+              ? Column(
+                  children: [
+                    const Text('• Trabalhos domésticos de esforço leve e moderado\n• Caminhadas relacionadas ao cotidiano\n• Ficar sentado por várias horas ao dia',
+                    style: TextStyle(fontFamily: 'GeosansLight'),),
+                    Image.asset(
+                      'assets/ativ1.png',
+                      width: 200,
+                    )
+                  ],
+                )
+              : const SizedBox.shrink();
+        }),
+        Observer(builder: (BuildContext context) {
+          return registrationStore.sliderAtividade > 2 &&
+                  registrationStore.sliderAtividade <= 4
+              ? Column(
+            children: [
+              const Text('• Caminhadas frequentes de cerca de 6 km\n• Trabalhos domésticos de esforço leve e moderado\n• Caminhadas relacionadas ao cotidiano',
+                style: TextStyle(fontFamily: 'GeosansLight'),),
+              Image.asset(
+                'assets/ativ2.png',
+                width: 200,
+              )
+            ],
+          )
+              : const SizedBox.shrink();
+        }),
+        Observer(builder: (BuildContext context) {
+          return registrationStore.sliderAtividade > 4 &&
+                  registrationStore.sliderAtividade <= 6
+              ? Column(
+            children: [
+              const Text('• Gisnástica aeróbica, natação, jogar futebol\n• Corrida\n• Caminhadas frequentes acima de 6 km',
+                style: TextStyle(fontFamily: 'GeosansLight'),),
+              Image.asset(
+                'assets/ativ3.png',
+                width: 200,
+              )
+            ],
+          )
+              : const SizedBox.shrink();
+        }),
+        Observer(builder: (BuildContext context) {
+          return registrationStore.sliderAtividade > 6 &&
+                  registrationStore.sliderAtividade <= 8
+              ? Column(
+            children: [
+              const Text('• Correr, pular corda, jogar futebol frequentemente\n• Pratica de esportes \n• Pelo menos 5 dias por semana',
+                style: TextStyle(fontFamily: 'GeosansLight'),),
+              Image.asset(
+                'assets/ativ4.png',
+                width: 200,
+              )
+            ],
+          )
+              : const SizedBox.shrink();
+        }),
+        Observer(builder: (BuildContext context) {
+          return registrationStore.sliderAtividade > 8 &&
+                  registrationStore.sliderAtividade <= 10
+              ? Column(
+            children: [
+              const Text('• Atletas, ciclistas, corredores, lutadores\n• Busca e controle da melhoria de performance\n• Atividades físicas intensas com alto gasto energético ',
+                style: TextStyle(fontFamily: 'GeosansLight'),),
+              Image.asset(
+                'assets/ativ5.png',
+                width: 200,
+              )
+            ],
+          )
+              : const SizedBox.shrink();
+        }),
         const SizedBox(
           height: 32,
         ),
@@ -497,14 +638,15 @@ class solicitaAtividade extends StatelessWidget {
                 registrationStore.sliderAtividade == null
                     ? _toast('Favor preencher')
                     : FirebaseData.saveRegister(
-                  '${registrationStore.name}',
-                  '${registrationStore.age}',
-                  '${registrationStore.weight}',
-                  '${registrationStore.height}',
-                  '${registrationStore.genre}',
-                  '${registrationStore.nutritionalGoal}',
-                  '${registrationStore.sliderAtividade}',
-                );
+                        '${registrationStore.name}',
+                        '${registrationStore.age}',
+                        '${registrationStore.weight}',
+                        '${registrationStore.height}',
+                        '${registrationStore.genre}',
+                        '${registrationStore.nutritionalGoal}',
+                        '${registrationStore.sliderAtividade}',
+                        '${registrationStore.email}',
+                      );
                 registrationStore.saveLocal();
                 Navigator.pushNamed(context, 'home');
               },
@@ -516,3 +658,4 @@ class solicitaAtividade extends StatelessWidget {
     );
   }
 }
+

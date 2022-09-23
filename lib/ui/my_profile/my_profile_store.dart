@@ -25,6 +25,9 @@ abstract class _MyProfileStore with Store {
   String? height;
 
   @observable
+  String? email;
+
+  @observable
   String? genre;
 
   @observable
@@ -54,6 +57,7 @@ abstract class _MyProfileStore with Store {
     final genreStorage = await storage.get('genre');
     final nutritionalGoalStorage = await storage.get('nutritionalGoal');
     final sliderActivityStorage = await storage.get('sliderAtividade');
+    final emailStorage = await storage.get('email');
     registred = registery;
     name = nameStorage;
     age = ageStorage;
@@ -62,6 +66,7 @@ abstract class _MyProfileStore with Store {
     genre = genreStorage;
     nutritionalGoal = nutritionalGoalStorage;
     sliderAtividade = sliderActivityStorage;
+    email = emailStorage;
 
     double peso = double.parse(weightStorage.replaceAll(',', '.'));
     double altura = double.parse(heightStorage.replaceAll(',', '.'));
@@ -116,6 +121,7 @@ abstract class _MyProfileStore with Store {
     storage.put('genre', genre);
     storage.put('nutritionalGoal', nutritionalGoal);
     storage.put('sliderAtividade', sliderAtividade);
+    storage.put('email', email);
   }
 
 }

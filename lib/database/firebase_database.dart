@@ -4,8 +4,7 @@ import 'package:http/http.dart' as http;
 
 class FirebaseData {
   static saveRegister(String nome, String idade, String peso, String altura,
-      String genero, String objetivoNutricional, String perfil) {
-    final email = 'airton@gmailcom';
+      String genero, String objetivoNutricional, String perfil, String email) {
     final _baseUrl = 'https://nutri-lizandra-default-rtdb.firebaseio.com/';
     String encoded = base64.encode(utf8.encode(email));
     http.post(
@@ -21,8 +20,7 @@ class FirebaseData {
       }),
     );
   }static editRegister(String nome, String idade, String peso, String altura,
-      String genero, String objetivoNutricional, String perfil) {
-    final email = 'airton@gmailcom';
+      String genero, String objetivoNutricional, String perfil, String email) {
     final _baseUrl = 'https://nutri-lizandra-default-rtdb.firebaseio.com/';
     String encoded = base64.encode(utf8.encode(email));
     http.put(

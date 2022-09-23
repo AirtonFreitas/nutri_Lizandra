@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         ),
        textTheme: ThemeData.light().textTheme.copyWith(headline6: TextStyle(fontFamily: 'GeosansLight'))
         ),
-      initialRoute: 'home',
+      initialRoute: 'splash',
       onGenerateRoute: RouteGenerator.generateRoute,
       );
   }

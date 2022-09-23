@@ -52,6 +52,7 @@ class _EditProfileState extends State<EditProfile> {
                       '${profileStore.genre}',
                       '${profileStore.nutritionalGoal}',
                       '${profileStore.sliderAtividade}',
+                      '${profileStore.email}',
                     );
                     profileStore.saveLocal();
                     FocusManager.instance.primaryFocus?.unfocus();

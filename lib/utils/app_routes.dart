@@ -12,13 +12,16 @@ import '../ui/profile_nutri/profile_nutri_page.dart';
 import '../ui/revenues/revenue_page_widget.dart';
 import '../src/utils/drawer_app.dart';
 import '../ui/shedule_your_consultation/shedule_your_consultation_page.dart';
+import '../ui/splash_screen/splash_screen_page.dart';
 import '../ui/tips/nutritional_tips_page.dart';
 
 class RouteGenerator {
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case 'home':
+      case 'splash':
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
+        case 'home':
         return MaterialPageRoute(builder: (_) => const NavigationPage());
       case 'before-and-after':
         return MaterialPageRoute(builder: (_) => const BeforeAndAfterScreen());
