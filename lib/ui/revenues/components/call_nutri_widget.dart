@@ -32,7 +32,7 @@ class _CallNutriState extends State<CallNutri> {
           height: 8,
         ),
         const Text(
-          'Sua saúde, está em suas mãos',
+          'Sua saúde está em suas mãos',
           style: TextStyle(
             fontFamily: 'GeosansLight',
             fontSize: 20,

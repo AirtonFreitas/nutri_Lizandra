@@ -446,7 +446,7 @@ class _BodyProfileWidgetState extends State<BodyProfileWidget> {
           height: 8,
         ),
         const Text(
-          'sua saúde, está em suas mãos',
+          'Sua saúde está em suas mãos',
           style: TextStyle(
             fontFamily: 'GeosansLight',
             fontSize: 20,

@@ -553,7 +553,7 @@ class solicitaAtividade extends StatelessWidget {
                   registrationStore.sliderAtividade <= 2
               ? Column(
                   children: [
-                    const Text('• Trabalhos domésticos de esforço leve e moderado\n• Caminhadas relacionadas ao cotidiano\n• Ficar sentado por várias horas ao dia',
+                    const Text('• Trabalhos domésticos de esforço leve a moderado\n• Caminhadas relacionadas ao cotidiano\n• Ficar sentado por várias horas ao dia',
                     style: TextStyle(fontFamily: 'GeosansLight'),),
                     Image.asset(
                       'assets/ativ1.png',
@@ -568,7 +568,7 @@ class solicitaAtividade extends StatelessWidget {
                   registrationStore.sliderAtividade <= 4
               ? Column(
             children: [
-              const Text('• Caminhadas frequentes de cerca de 6 km\n• Trabalhos domésticos de esforço leve e moderado\n• Caminhadas relacionadas ao cotidiano',
+              const Text('• Caminhadas frequentes de cerca de 6 km\n• Trabalhos domésticos de esforço leve a moderado\n• Caminhadas relacionadas ao cotidiano',
                 style: TextStyle(fontFamily: 'GeosansLight'),),
               Image.asset(
                 'assets/ativ2.png',
@@ -583,7 +583,7 @@ class solicitaAtividade extends StatelessWidget {
                   registrationStore.sliderAtividade <= 6
               ? Column(
             children: [
-              const Text('• Gisnástica aeróbica, natação, jogar futebol\n• Corrida\n• Caminhadas frequentes acima de 6 km',
+              const Text('• Ginástica aeróbica, natação, jogar futebol\n• Corrida\n• Caminhadas frequentes acima de 6 km',
                 style: TextStyle(fontFamily: 'GeosansLight'),),
               Image.asset(
                 'assets/ativ3.png',
@@ -598,7 +598,7 @@ class solicitaAtividade extends StatelessWidget {
                   registrationStore.sliderAtividade <= 8
               ? Column(
             children: [
-              const Text('• Correr, pular corda, jogar futebol frequentemente\n• Pratica de esportes \n• Pelo menos 5 dias por semana',
+              const Text('• Correr, pular corda, jogar futebol frequentemente\n• Prática de esportes \n• Pelo menos 5 dias por semana',
                 style: TextStyle(fontFamily: 'GeosansLight'),),
               Image.asset(
                 'assets/ativ4.png',

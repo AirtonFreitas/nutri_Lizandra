@@ -142,7 +142,7 @@ class _RevenueLunchWidget extends State<RevenueLunchWidget> {
                       '3. Coloque em uma forma antiaderente a massa \nem forma de pequenas bolas (1 colher de sopa cheia\n para cada bola).\n'
                       '4. Asse por 10 a 12 minutos, até que comece a ficar dourado.',
                   ingredients: '• Ovo (1 unidade)\n'
-                      '• Pasta de Amendoim (1/3 de xícara)\n'
+                      '• Pasta de Amendoim (1/3 de uma xícara de chá)\n'
                       '• Banana (1 unidade)\n'
                       '• Canela em pó (1 colher de chá)')
               : const SizedBox.shrink(),

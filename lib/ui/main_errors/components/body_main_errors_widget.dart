@@ -45,7 +45,7 @@ class _BodyErrosMainWidgetState extends State<BodyErrosMainWidget> {
                   _bodyTwo(),
                   const Text(
                     'Ficar muito tempo sem se alimentar pode reduzir o metabolismo corporal.\n'
-                    'Mas, comer com frequencia, só vai fazer você perder peso se o seu gasto calórico for maior do que o consumo de calorias. Dessa forma, você precisará fazer uma dieta que seja compatível com seu gasto calórico diário. Ou seja, é preciso haver um equilíbrio entre o consumo de calorias e a queima delas.',
+                    'Mas, comer com frequência, só vai fazer você perder peso se o seu gasto calórico for maior do que o consumo de calorias. Dessa forma, você precisará fazer uma dieta que seja compatível com seu gasto calórico diário. Ou seja, é preciso haver um equilíbrio entre o consumo de calorias e a queima delas.',
                     style: TextStyle(fontFamily: 'GeosansLight'),
                   ),
                   const SizedBox(
@@ -61,7 +61,7 @@ class _BodyErrosMainWidgetState extends State<BodyErrosMainWidget> {
                   ),
                   _bodyFour(),
                   const Text(
-                    'O exercício físico, principalmente aeróbico, aumenta a capacidade cardiorrespiratória e acelera o metabolismo, elevando o gasto energético – o que é popularmente conhecido como “queimar calorias” –, estimulando o emagrecimento.',
+                    'O exercício físico, principalmente aeróbico, aumenta a capacidade cardiorrespiratória e acelera o metabolismo, elevando o gasto energético, que é conhecido como “queimar calorias”, estimulando o emagrecimento.',
                     style: TextStyle(fontFamily: 'GeosansLight'),
                   ),
                   getBanner(AdmobBannerSize.BANNER),
@@ -123,7 +123,7 @@ class _BodyErrosMainWidgetState extends State<BodyErrosMainWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         const Text(
-          'Não praticar \natividade Física',
+          'Não praticar \natividade física',
           style: TextStyle(fontSize: 22, fontFamily: 'GeosansLight'),
         ),
         Image.asset(

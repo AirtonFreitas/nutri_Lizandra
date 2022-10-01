@@ -137,7 +137,11 @@ class _RevenueCoffeWidget extends State<RevenueCoffeWidget> {
                   time: '10min',
                   qtdIngredients: '3 itens',
                   level: 'médio',
-                  modoPreparo: 'Misture tudo e leve para assar.\n'
+                  modoPreparo: '1. Misture tudo.\n'
+                      '2. Pré aqueça o forno à 180°C.\n'
+                      '3. Modele os pães no formato que desejar.\n'
+                      '4. Leve ao forno por cerca de 30 minutos.\n'
+                      '5. Retire do forno quando os pães estiverem dourados na superfície.\n'
                       'Pode ser qualquer leite em pó (até desnatado).',
                   ingredients: '• Ovo (1 unidade)\n'
                       '• Fermento químico (1 colher de chá)\n'
