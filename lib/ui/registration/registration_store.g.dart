@@ -104,6 +104,22 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
     });
   }
 
+  late final _$emailAtom =
+      Atom(name: '_RegistrationStore.email', context: context);
+
+  @override
+  String? get email {
+    _$emailAtom.reportRead();
+    return super.email;
+  }
+
+  @override
+  set email(String? value) {
+    _$emailAtom.reportWrite(value, super.email, () {
+      super.email = value;
+    });
+  }
+
   late final _$pageActiveAtom =
       Atom(name: '_RegistrationStore.pageActive', context: context);
 
@@ -208,6 +224,14 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
     return _$setGenreAsyncAction.run(() => super.setGenre(generoRecebido));
   }
 
+  late final _$setEmailAsyncAction =
+      AsyncAction('_RegistrationStore.setEmail', context: context);
+
+  @override
+  Future<void> setEmail(String emasilRecebido) {
+    return _$setEmailAsyncAction.run(() => super.setEmail(emasilRecebido));
+  }
+
   late final _$setObjectiveAsyncAction =
       AsyncAction('_RegistrationStore.setObjective', context: context);
 
@@ -234,6 +258,7 @@ weight: ${weight},
 height: ${height},
 genre: ${genre},
 nutritionalGoal: ${nutritionalGoal},
+email: ${email},
 pageActive: ${pageActive},
 sliderAtividade: ${sliderAtividade}
     ''';

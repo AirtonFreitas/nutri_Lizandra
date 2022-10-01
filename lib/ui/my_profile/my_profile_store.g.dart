@@ -87,6 +87,22 @@ mixin _$MyProfileStore on _MyProfileStore, Store {
     });
   }
 
+  late final _$emailAtom =
+      Atom(name: '_MyProfileStore.email', context: context);
+
+  @override
+  String? get email {
+    _$emailAtom.reportRead();
+    return super.email;
+  }
+
+  @override
+  set email(String? value) {
+    _$emailAtom.reportWrite(value, super.email, () {
+      super.email = value;
+    });
+  }
+
   late final _$genreAtom =
       Atom(name: '_MyProfileStore.genre', context: context);
 
@@ -263,6 +279,7 @@ name: ${name},
 age: ${age},
 weight: ${weight},
 height: ${height},
+email: ${email},
 genre: ${genre},
 nutritionalGoal: ${nutritionalGoal},
 imc: ${imc},

@@ -11,6 +11,10 @@ import '../ui/navigation/navigation_page.dart';
 import '../ui/profile_nutri/profile_nutri_page.dart';
 import '../ui/revenues/revenue_page_widget.dart';
 import '../src/utils/drawer_app.dart';
+import '../ui/revenues/revenues_coffee/revenues_coffee_page.dart';
+import '../ui/revenues/revenues_food/revenues_food_page.dart';
+import '../ui/revenues/revenues_lunch/revenues_lunch_page.dart';
+import '../ui/revenues/revenues_sweet/revenues_sweet_page.dart';
 import '../ui/shedule_your_consultation/shedule_your_consultation_page.dart';
 import '../ui/splash_screen/splash_screen_page.dart';
 import '../ui/tips/nutritional_tips_page.dart';
@@ -37,8 +41,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
         case 'edit-profile':
         return MaterialPageRoute(builder: (_) => const EditProfile());
-      case 'revenues':
-        return MaterialPageRoute(builder: (_) => const RevenueDetails());
       case 'shedule-consultation':
         return MaterialPageRoute(builder: (_) => const SheduleConsultationScreen());
       case 'tips':
@@ -47,12 +49,16 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ProfileNutriScreen());
       case 'registration-name':
         return MaterialPageRoute(builder: (_) => const RegistrationProfile());
-      // case 'registration-age': (context){
-      //   {
-      //     final args = ModalRoute.of(context)?. settings.arguments as Map;
-      //     return WhatsAge(arguments: args['namePerson']);
-      //   }};
-      // break;
+      case 'revenues':
+        return MaterialPageRoute(builder: (_) => const RevenueDetails());
+      case 'revenues-coffee':
+        return MaterialPageRoute(builder: (_) => const RevenuesCoffee());
+      case 'revenues-lunch':
+        return MaterialPageRoute(builder: (_) => const RevenuesLunch());
+      case 'revenues-food':
+        return MaterialPageRoute(builder: (_) => const RevenuesFood());
+      case 'revenues-sweet':
+        return MaterialPageRoute(builder: (_) => const RevenuesSweet());
       default:
         _erroRoute();
     }

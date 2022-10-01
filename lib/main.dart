@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         buttonTheme: ButtonThemeData(
           buttonColor: ColorsUtils.greenSecondary,textTheme: ButtonTextTheme.accent,
         ),
-       textTheme: ThemeData.light().textTheme.copyWith(headline6: TextStyle(fontFamily: 'GeosansLight'))
+       textTheme: ThemeData.light().textTheme.copyWith(headline6: const TextStyle(fontFamily: 'GeosansLight'))
         ),
       initialRoute: 'splash',
       onGenerateRoute: RouteGenerator.generateRoute,

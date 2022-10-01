@@ -17,6 +17,7 @@ class FirebaseData {
         'genero': '$genero',
         'objetivoNutricional': '$objetivoNutricional',
         'praticaAtividade': '$perfil',
+        'email': email,
       }),
     );
   }static editRegister(String nome, String idade, String peso, String altura,
@@ -33,6 +34,7 @@ class FirebaseData {
         'genero': '$genero',
         'objetivoNutricional': '$objetivoNutricional',
         'praticaAtividade': '$perfil',
+        'email': email,
       }),
     );
   }
